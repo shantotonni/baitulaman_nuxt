@@ -82,10 +82,17 @@
                   <nuxt-link to="/volunteer" class="dropdown-item">Volunteer</nuxt-link>
                 </div>
               </div>
-              <!--              <a href="activity.html" class="nav-item nav-link">Activities</a>-->
-              <!--              <a href="event.html" class="nav-item nav-link">Events</a>-->
-              <!--              <a href="sermon.html" class="nav-item nav-link">Sermons</a>-->
-              <nuxt-link to="/about" class="nav-item nav-link">About</nuxt-link>
+              <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Meet bais</a>
+                <div class="dropdown-menu m-0 rounded-0">
+                  <nuxt-link to="/about" class="dropdown-item">About</nuxt-link>
+                  <nuxt-link to="/about/objective" class="dropdown-item">Objective</nuxt-link>
+                  <nuxt-link to="/about/advisory-board" class="dropdown-item">Advisory Board</nuxt-link>
+                  <nuxt-link to="/about/shura-committee" class="dropdown-item">Shura Committee</nuxt-link>
+                </div>
+              </div>
+
+<!--              <nuxt-link to="/about" class="nav-item nav-link">About</nuxt-link>-->
             </div>
             <a href="" class="btn btn-success py-2 px-4 d-none d-xl-inline-block">Donate</a>
           </div>
