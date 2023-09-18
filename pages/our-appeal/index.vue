@@ -27,23 +27,9 @@
         </div>
         <div class="row g-4 wow fadeIn" data-wow-delay="0.3s">
           <div class="col-sm-8 offset-2" style="text-align: left">
-            <p class="mb-0" style="font-weight: bold">“Whoever builds a mosque for Allah, then Allah will build for him a house like it in Paradise”
-              <span style="font-weight: normal">[Sahih Bukhari]</span>
-            </p>
-            <br>
-            <p>
-              Building a mosque can also be an act of Sadaqah Jariyah for you or your loved ones.
-              Your donation can earn continuous reward as it is providing an essential pillar of the Islamic community for generations to come.
-            </p>
-            <p>
-              Contributing towards building a mosque is a sacred act in itself. Mosques have high importance in Islam and is the heart of the local community.
-              With many people benefiting from the daily worship facilities, educational programmes and special occasion services, there is much more to a mosque than congregational prayers.
-              A mosque can act as a hub for the local community, teaching people about Islam and supporting their spiritual growth.
-            </p>
-            <p style="font-weight: bold">
-              “When a person dies, his deeds come to an end, except for three:
-              ongoing charity (Sadaqah Jariyah), knowledge that is benefited from, and a righteous child who prays for him.” <span style="font-weight: normal">(Sahih Muslim)</span>
-            </p>
+            <div v-if="pages">
+              <p v-html="pages.body"></p>
+            </div>
           </div>
         </div>
       </div>
@@ -53,6 +39,8 @@
 </template>
 
 <script>
+import {base_url} from "~/plugins/base_url";
+
 export default {
   name: "our-appeal.vue",
   auth:false,
@@ -60,6 +48,25 @@ export default {
     return {
       title: "Our Appeal | Baitul Aman"
     };
+  },
+  data() {
+    return {
+      pages: {},
+      slug: 'our-appeal'
+    };
+  },
+  mounted() {
+    document.title = 'Our Appeal | Baitul Aman';
+    this.getPages();
+  },
+  methods: {
+    getPages(){
+      this.$axios.get( base_url + 'api/get-pages?slug=' + this.slug).then((response)=>{
+        this.pages = response.data.pages;
+        //console.log(response);
+      }).catch((error)=>{
+      })
+    },
   },
 }
 </script>

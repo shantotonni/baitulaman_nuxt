@@ -6,10 +6,10 @@
         <div class="row">
           <div class="col-lg-7">
             <div class="hero-header-inner animated zoomIn">
-              <h1 class="display-1 text-dark" style="font-size: 3rem">Baitul Aman Youth Club</h1>
+              <h1 class="display-1 text-dark" style="font-size: 3rem">{{ pages.title }}</h1>
               <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item"><nuxt-link to="/">Home</nuxt-link></li>
-                <li class="breadcrumb-item text-dark" aria-current="page">Baitul Aman Youth Club</li>
+                <li class="breadcrumb-item text-dark" aria-current="page">{{ pages.title }}</li>
               </ol>
             </div>
           </div>
@@ -22,18 +22,13 @@
     <div class="container-fluid contact py-5">
       <div class="container py-5">
         <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s">
-          <h1 class="display-3" style="">Baitul Aman Youth Club</h1>
+          <h1 class="display-3" style="">{{ pages.title }}</h1>
 
         </div>
         <div class="row g-4 wow fadeIn" data-wow-delay="0.3s">
           <div class="col-sm-8 offset-2" style="text-align: left">
-<!--            <h2>Regular programs</h2>-->
-            <p v-html="youth_club.body"></p>
+            <p v-html="pages.body"></p>
             <br>
-
-<!--            <p style="font-weight: bold">-->
-<!--              Note: The Schedule Can Change At Any Time. Please Contact Us Before Coming.-->
-<!--            </p>-->
           </div>
         </div>
       </div>
@@ -50,23 +45,23 @@ export default {
   auth:false,
   head() {
     return {
-      title: "Baitul Aman Youth Club | Baitul Aman"
+      title: this.pages.title + " | Baitul Aman"
     };
   },
   data() {
     return {
-      youth_club: {},
+      pages: {},
+      slug: 'baitul-aman-youth-club'
     };
   },
   mounted() {
-    document.title = 'Baitul Aman Youth Club | Baitul Aman';
-    this.getYouthClub();
+    this.getPages();
+    document.title = this.pages.title + '| Baitul Aman';
   },
   methods: {
-    getYouthClub(){
-      this.$axios.get( base_url + 'api/get-youth-club').then((response)=>{
-        this.youth_club = response.data.youth_club;
-        //console.log(response);
+    getPages(){
+      this.$axios.get( base_url + 'api/get-pages?slug=' + this.slug).then((response)=>{
+        this.pages = response.data.pages;
       }).catch((error)=>{
       })
     },

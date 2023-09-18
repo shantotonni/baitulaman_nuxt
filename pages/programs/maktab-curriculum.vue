@@ -6,10 +6,10 @@
         <div class="row">
           <div class="col-lg-7">
             <div class="hero-header-inner animated zoomIn">
-              <h1 class="display-1 text-dark" style="font-size: 3rem">Maktab Curriculum</h1>
+              <h1 class="display-1 text-dark" style="font-size: 3rem">{{ pages.title }}</h1>
               <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item"><nuxt-link to="/">Home</nuxt-link></li>
-                <li class="breadcrumb-item text-dark" aria-current="page">Maktab Curriculum</li>
+                <li class="breadcrumb-item text-dark" aria-current="page">{{ pages.title }}</li>
               </ol>
             </div>
           </div>
@@ -22,12 +22,12 @@
     <div class="container-fluid contact py-5">
       <div class="container py-5">
         <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s">
-          <h1 class="display-3" style="">Maktab Curriculum</h1>
+          <h1 class="display-3" style="">{{ pages.title }}</h1>
 
         </div>
         <div class="row g-4 wow fadeIn" data-wow-delay="0.3s">
           <div class="col-sm-8 offset-2" style="text-align: left">
-            <p v-html="maktab_curriculum.body"></p>
+            <p v-html="pages.body"></p>
             <br>
           </div>
         </div>
@@ -45,22 +45,23 @@ export default {
   auth:false,
   head() {
     return {
-      title: "Maktab Curriculum | Baitul Aman"
+      title: this.pages.title + " | Baitul Aman"
     };
   },
   data() {
     return {
-      maktab_curriculum: {},
+      pages: {},
+      slug: 'maktab-curriculum'
     };
   },
   mounted() {
-    document.title = 'Maktab Curriculum | Baitul Aman';
-    this.getMaktabCurriculum();
+    this.getPages();
+    document.title = this.pages.title + '| Baitul Aman';
   },
   methods: {
-    getMaktabCurriculum(){
-      this.$axios.get( base_url + 'api/get-maktab-curriculum').then((response)=>{
-        this.maktab_curriculum = response.data.maktab_curriculum;
+    getPages(){
+      this.$axios.get( base_url + 'api/get-pages?slug=' + this.slug).then((response)=>{
+        this.pages = response.data.pages;
       }).catch((error)=>{
       })
     },

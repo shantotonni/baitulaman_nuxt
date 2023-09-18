@@ -33,6 +33,16 @@
               Following honourable community members have kindly agreed to sit in the advisory board:
             </p>
             <br>
+            <table class="table table-bordered table-striped dt-responsive nowrap dataTable no-footer dtr-inline">
+              <tbody>
+                    <tr v-for="(advisor, i) in advisory_board" :key="advisor.id" v-if="advisory_board.length">
+                      <th class="text-center" scope="row">{{ ++i }}</th>
+                      <td class="text-left">{{ advisor.name }}</td>
+                      <td class="text-left">{{ advisor.designation }}</td>
+                      <td class="text-left">{{ advisor.mobile }}</td>
+                    </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -53,7 +63,7 @@ export default {
   },
   data() {
     return {
-      objectives: {},
+      advisory_board: {},
     };
   },
   mounted() {
@@ -62,8 +72,8 @@ export default {
   },
   methods: {
     getAbout(){
-      this.$axios.get( base_url + 'api/get-objectives').then((response)=>{
-        this.objectives = response.data.objectives;
+      this.$axios.get( base_url + 'api/get-advisory-board').then((response)=>{
+        this.advisory_board = response.data.advisory_board;
         //console.log(response);
       }).catch((error)=>{
       })

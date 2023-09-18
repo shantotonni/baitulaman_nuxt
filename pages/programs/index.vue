@@ -23,72 +23,23 @@
       <div class="container py-5">
         <h1 class="display-3 mb-5 wow fadeIn" data-wow-delay="0.1s">Latest From <span class="text-primary">Our Programs</span></h1>
         <div class="row g-4 justify-content-center">
-          <div class="col-lg-6 col-xl-4">
+          <div class="col-lg-6 col-xl-4" v-for="(program, i) in our_programs" :key="program.id" v-if="our_programs.length">
             <div class="blog-item wow fadeIn" data-wow-delay="0.1s">
               <div class="blog-img position-relative overflow-hidden">
-                <img src="/assets/img/blog-1.jpg" class="img-fluid w-100" alt="">
-<!--                <div class="bg-primary d-inline px-3 py-2 text-center text-white position-absolute top-0 end-0">01 Jan 2045</div>-->
+                <img :src="image(program.image)" style="max-height: 330px;min-height: 330px" class="img-fluid w-100" alt="">
               </div>
               <div class="p-4">
                 <div class="blog-meta d-flex justify-content-between pb-2">
                   <div class="">
                     <small><i class="fas fa-user me-2 text-muted"></i><a href="" class="text-muted me-2">By Admin</a></small>
-<!--                    <small><i class="fa fa-comment-alt me-2 text-muted"></i><a href="" class="text-muted me-2">12 Comments</a></small>-->
                   </div>
                   <div class="">
                     <a href=""><i class="fas fa-bookmark text-muted"></i></a>
                   </div>
                 </div>
-                <a href="" class="d-inline-block h4 lh-sm mb-3">Evening School for Children</a>
-                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                  aliquip ex ea commodo consequat.</p>
-                <a href="#" class="btn btn-primary px-3">More Details</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-xl-4">
-            <div class="blog-item wow fadeIn" data-wow-delay="0.3s">
-              <div class="blog-img position-relative overflow-hidden">
-                <img src="/assets/img/blog-2.jpg" class="img-fluid w-100" alt="">
-<!--                <div class="bg-primary d-inline px-3 py-2 text-center text-white position-absolute top-0 end-0">01 Jan 2045</div>-->
-              </div>
-              <div class="p-4">
-                <div class="blog-meta d-flex justify-content-between pb-2">
-                  <div class="">
-                    <small><i class="fas fa-user me-2 text-muted"></i><a href="" class="text-muted me-2">By Admin</a></small>
-<!--                    <small><i class="fa fa-comment-alt me-2 text-muted"></i><a href="" class="text-muted me-2">12 Comments</a></small>-->
-                  </div>
-                  <div class="">
-                    <a href=""><i class="fas fa-bookmark text-muted"></i></a>
-                  </div>
-                </div>
-                <a href="" class="d-inline-block h4 lh-sm mb-3">Arabic Beginners for Adults</a>
-                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                  aliquip ex ea commodo consequat.</p>
-                <a href="#" class="btn btn-primary px-3">More Details</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-xl-4">
-            <div class="blog-item wow fadeIn" data-wow-delay="0.5s">
-              <div class="blog-img position-relative overflow-hidden">
-                <img src="/assets/img/blog-3.jpg" class="img-fluid w-100" alt="">
-                <div class="bg-primary d-inline px-3 py-2 text-center text-white position-absolute top-0 end-0">01 Jan 2045</div>
-              </div>
-              <div class="p-4">
-                <div class="blog-meta d-flex justify-content-between pb-2">
-                  <div class="">
-                    <small><i class="fas fa-user me-2 text-muted"></i><a href="" class="text-muted me-2">By Admin</a></small>
-<!--                    <small><i class="fa fa-comment-alt me-2 text-muted"></i><a href="" class="text-muted me-2">12 Comments</a></small>-->
-                  </div>
-                  <div class="">
-                    <a href=""><i class="fas fa-bookmark text-muted"></i></a>
-                  </div>
-                </div>
-                <a href="" class="d-inline-block h4 lh-sm mb-3">Marriage Services</a>
-                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                  aliquip ex ea commodo consequat.</p>
-                <a href="#" class="btn btn-primary px-3">More Details</a>
+                <a href="" class="d-inline-block h4 lh-sm mb-3">{{ program.title }}</a>
+                <p class="mb-4" v-html="textTrunate(program.description)"></p>
+                <nuxt-link to="/" class="btn btn-primary px-3">More Details</nuxt-link>
               </div>
             </div>
           </div>
@@ -100,13 +51,38 @@
 </template>
 
 <script>
+import {base_url} from "~/plugins/base_url";
+
 export default {
   name: "programs.vue",
   auth:false,
   head() {
     return {
       title: "Our Programs | Baitul Aman"
+    }
+  },
+  data() {
+    return {
+      our_programs: [],
     };
+  },
+  mounted() {
+    document.title = 'Our Programs | Baitul Aman';
+    this.getOurProgram();
+  },
+  methods: {
+    getOurProgram(){
+      this.$axios.get( base_url + 'api/get-our-program').then((response)=>{
+        this.our_programs = response.data.our_programs;
+      }).catch((error)=>{
+      })
+    },
+    image(image){
+      return base_url + "images/program/"+ image;
+    },
+    textTrunate(text){
+      return text.substring(0,100)+ '.....';
+    }
   },
 }
 </script>

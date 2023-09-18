@@ -28,8 +28,9 @@
       </div>
       <div class="row g-4 wow fadeIn" data-wow-delay="0.3s">
         <div class="col-sm-8 offset-2" style="text-align: left">
-          <!--            <h2>Regular programs</h2>-->
-          <p v-html="about.body"></p>
+          <div v-if="pages">
+            <p v-html="pages.body"></p>
+          </div>
           <br>
         </div>
       </div>
@@ -52,17 +53,18 @@ export default {
   },
   data() {
     return {
-      about: {},
+      pages: {},
+      slug: 'about'
     };
   },
   mounted() {
     document.title = 'About | Baitul Aman';
-    this.getAbout();
+    this.getPages();
   },
   methods: {
-    getAbout(){
-      this.$axios.get( base_url + 'api/get-about').then((response)=>{
-        this.about = response.data.about;
+    getPages(){
+      this.$axios.get( base_url + 'api/get-pages?slug=' + this.slug).then((response)=>{
+        this.pages = response.data.pages;
         //console.log(response);
       }).catch((error)=>{
       })

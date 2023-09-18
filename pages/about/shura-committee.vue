@@ -34,28 +34,12 @@
               <br>
               <table class="table table-bordered table-striped dt-responsive nowrap dataTable no-footer dtr-inline">
                 <tbody>
-                <tr>
-                  <th class="text-center" scope="row">1</th>
-                  <td class="text-left">Joynal Abedin</td>
+                <tr v-for="(shura, i) in shura_committee" :key="shura.id" v-if="shura_committee.length">
+                  <th class="text-center" scope="row">{{ ++i }}</th>
+                  <td class="text-left">{{ shura.name }}</td>
+                  <td class="text-left">{{ shura.designation }}</td>
+                  <td class="text-left">{{ shura.mobile }}</td>
                 </tr>
-                <tr>
-                  <th class="text-center" scope="row">2</th>
-                  <td class="text-left">Khairul Robin</td>
-                </tr>
-<!--                <tr v-for="(page, i) in pages" :key="page.id" v-if="pages.length">-->
-<!--                  <th class="text-center" scope="row">{{ ++i }}</th>-->
-<!--                  <td class="text-left">{{ page.title }}</td>-->
-<!--                  <td class="text-left">{{ page.slug }}</td>-->
-<!--                  <td class="text-center">-->
-<!--                    <router-link :to="`page-details/${page.id}`" class="btn btn-primary btn-sm btn-xs"><i class="far fa-eye"></i></router-link>-->
-<!--                    <button @click="edit(page)" class="btn btn-success btn-sm">-->
-<!--                      <i-->
-<!--                        class="far fa-edit"></i></button>-->
-<!--                    <button @click="destroy(page.id)"-->
-<!--                            class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>-->
-<!--                    </button>-->
-<!--                  </td>-->
-<!--                </tr>-->
                 </tbody>
               </table>
             </div>
@@ -74,22 +58,22 @@ export default {
   auth:false,
   head() {
     return {
-      title: "Objectives | Baitul Aman"
+      title: "Shura Committee | Baitul Aman"
     };
   },
   data() {
     return {
-      objectives: {},
+      shura_committee: {},
     };
   },
   mounted() {
-    document.title = 'Objectives | Baitul Aman';
-    this.getAbout();
+    document.title = 'Shura Committee | Baitul Aman';
+    this.getShuraCommittee();
   },
   methods: {
-    getAbout(){
-      this.$axios.get( base_url + 'api/get-objectives').then((response)=>{
-        this.objectives = response.data.objectives;
+    getShuraCommittee(){
+      this.$axios.get( base_url + 'api/get-shura-committee').then((response)=>{
+        this.shura_committee = response.data.shura_committee;
         //console.log(response);
       }).catch((error)=>{
       })

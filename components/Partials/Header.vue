@@ -91,6 +91,21 @@
                   <nuxt-link to="/about/shura-committee" class="dropdown-item">Shura Committee</nuxt-link>
                 </div>
               </div>
+              <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Meet Imam</a>
+                <div class="dropdown-menu m-0 rounded-0">
+                  <nuxt-link to="/our-imam" class="dropdown-item">Our Imam</nuxt-link>
+                  <nuxt-link to="/our-imam/ask-imam" class="dropdown-item">Ask The Imam</nuxt-link>
+                </div>
+              </div>
+              <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Prayer Timetable</a>
+                <div class="dropdown-menu m-0 rounded-0">
+                  <nuxt-link to="/todays-timetable" class="dropdown-item">Today`s Timetable</nuxt-link>
+<!--                  <nuxt-link to="/todays-timetable/monthly-timetable" class="dropdown-item">Monthly Timetable</nuxt-link>-->
+                  <nuxt-link to="/todays-timetable/ramadan-calendar" class="dropdown-item">Ramadan Calendar</nuxt-link>
+                </div>
+              </div>
 
 <!--              <nuxt-link to="/about" class="nav-item nav-link">About</nuxt-link>-->
             </div>
