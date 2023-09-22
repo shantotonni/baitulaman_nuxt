@@ -76,10 +76,10 @@ export default {
   },
   mounted() {
     document.title = 'Program Schedule | Baitul Aman';
-    this.getPages();
+    this.getProgramSchedule();
   },
   methods: {
-    getPages(){
+    getProgramSchedule(){
       this.$axios.get( base_url + 'api/get-program-schedule').then((response)=>{
         this.program_schedule = response.data.program_schedule;
         //console.log(response);

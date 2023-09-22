@@ -33,6 +33,8 @@
               <p>* <span style="font-weight: bold">e-transfer</span>: to baitulamanyeg@gmail.com, please mention Fitra in the comment box.</p>
               <p>* <span style="font-weight: bold">Credit Card</span>: Donate using a credit card by filling up the form below:</p>
             </div>
+            <br>
+            <nuxt-link to="/donate" class="btn btn-primary btn-lg btn-block" style="display: block">Donate</nuxt-link>
           </div>
         </div>
       </div>

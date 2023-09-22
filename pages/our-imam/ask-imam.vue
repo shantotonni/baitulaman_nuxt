@@ -28,23 +28,29 @@
               <p class="fs-5 text-uppercase text-primary">Do you have any questions regarding Islam, Quran and Muslims? Our Imam will be more than happy to answer your questions.</p>
               <p class="mb-0">Please fill out the form and someone will contact you shortly.</p>
             </div>
-            <div class="row g-4 wow fadeIn" data-wow-delay="0.3s">
-              <div class="col-sm-6">
-                <input type="text" class="form-control bg-transparent p-3" v-model="form.name" placeholder="Your Name">
+            <form @submit.prevent="store()" @keydown="form.onKeydown($event)">
+              <div class="row g-4 wow fadeIn" data-wow-delay="0.3s">
+                <div class="col-sm-6">
+                  <input type="text" class="form-control bg-transparent p-3" :class="{ 'is-invalid': form.errors.has('name') }" placeholder="Your Name" name="name" v-model="form.name">
+                  <div class="error" v-if="form.errors.has('name')" v-html="form.errors.get('name')" />
+                </div>
+                <div class="col-sm-6">
+                  <input type="email" class="form-control bg-transparent p-3" :class="{ 'is-invalid': form.errors.has('email') }" placeholder="Your Email" v-model="form.email">
+                  <div class="error" v-if="form.errors.has('email')" v-html="form.errors.get('email')" />
+                </div>
+                <div class="col-12">
+                  <input type="text" class="form-control bg-transparent p-3" :class="{ 'is-invalid': form.errors.has('subject') }" placeholder="Subject" v-model="form.subject">
+                  <div class="error" v-if="form.errors.has('subject')" v-html="form.errors.get('subject')" />
+                </div>
+                <div class="col-12">
+                  <textarea class="w-100 form-control bg-transparent p-3" rows="6" cols="10" :class="{ 'is-invalid': form.errors.has('message') }" placeholder="Your Message" v-model="form.message"></textarea>
+                  <div class="error" v-if="form.errors.has('message')" v-html="form.errors.get('message')" />
+                </div>
+                <div class="col-12 text-center">
+                  <button class="btn btn-primary border-0 py-3 px-5" type="submit">Send Message</button>
+                </div>
               </div>
-              <div class="col-sm-6">
-                <input type="email" class="form-control bg-transparent p-3" v-model="form.email" placeholder="Your Email">
-              </div>
-              <div class="col-12">
-                <input type="text" class="form-control bg-transparent p-3" v-model="form.subject" placeholder="Subject">
-              </div>
-              <div class="col-12">
-                <textarea class="w-100 form-control bg-transparent p-3" rows="6" cols="10" v-model="form.description" placeholder="Your Message"></textarea>
-              </div>
-              <div class="col-12 text-center">
-                <button class="btn btn-primary border-0 py-3 px-5" type="button">Send Message</button>
-              </div>
-            </div>
+            </form>
           </div>
         </div>
 
@@ -68,22 +74,28 @@ export default {
   data() {
     return {
       form: new Form({
-        'name':'',
-        'email':'',
-        'subject':'',
-        'description':'',
+        name:'',
+        email:'',
+        subject:'',
+        message:'',
       }),
     };
   },
   mounted() {
     document.title = 'Ask The Imam | Baitul Aman';
-    this.getAbout();
   },
   methods: {
-    getAbout(){
-      this.form.post( base_url + 'api/ask-the-imam').then((response)=>{
-        console.log(response);
+    store(){
+      this.form.post( base_url + 'api/question').then((response)=>{
+        if (response.data.status === 'success'){
+          this.form.name ='',
+            this.form.email ='',
+            this.form.subject ='',
+            this.form.message = '',
+            this.$toaster.success("Successfully Inserted")
+        }
       }).catch((error)=>{
+        //
       })
     },
   },
@@ -91,6 +103,9 @@ export default {
 </script>
 
 <style scoped>
-
+.error{
+  color: red;
+  font-size: 12px;
+}
 </style>
 

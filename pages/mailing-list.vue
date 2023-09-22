@@ -22,24 +22,28 @@
     <div class="container-fluid contact py-5">
       <div class="container py-5">
         <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
-<!--          <p class="fs-5 text-uppercase text-primary">Get In Touch</p>-->
           <h1 class="display-3">Mailing List</h1>
           <p class="mb-0">Please enter your contact information to receive emails with important news and updates from BAIS.</p>
         </div>
-        <div class="row g-4 wow fadeIn" data-wow-delay="0.3s">
-          <div class="col-sm-6">
-            <input type="text" class="form-control bg-transparent p-3" placeholder="Your Name (required)">
+        <form @submit.prevent="store()" @keydown="form.onKeydown($event)">
+          <div class="row g-4 wow fadeIn" data-wow-delay="0.3s">
+            <div class="col-sm-6">
+              <input type="text" class="form-control bg-transparent p-3" :class="{ 'is-invalid': form.errors.has('name') }" placeholder="Your Name" name="name" v-model="form.name">
+              <div class="error" v-if="form.errors.has('name')" v-html="form.errors.get('name')" />
+            </div>
+            <div class="col-sm-6">
+              <input type="email" class="form-control bg-transparent p-3" :class="{ 'is-invalid': form.errors.has('email') }" placeholder="Your Email" v-model="form.email">
+              <div class="error" v-if="form.errors.has('email')" v-html="form.errors.get('email')" />
+            </div>
+            <div class="col-12">
+              <textarea class="w-100 form-control bg-transparent p-3" rows="6" cols="10" :class="{ 'is-invalid': form.errors.has('message') }" placeholder="Your Message" v-model="form.message"></textarea>
+              <div class="error" v-if="form.errors.has('message')" v-html="form.errors.get('message')" />
+            </div>
+            <div class="col-12 text-center">
+              <button class="btn btn-primary border-0 py-3 px-5" type="submit">Send Message</button>
+            </div>
           </div>
-          <div class="col-sm-6">
-            <input type="email" class="form-control bg-transparent p-3" placeholder="Your Email (required)">
-          </div>
-          <div class="col-12">
-            <textarea class="w-100 form-control bg-transparent p-3" rows="6" cols="10" placeholder="Your comment or message (required)"></textarea>
-          </div>
-          <div class="col-12 text-center">
-            <button class="btn btn-primary border-0 py-3 px-5" type="button">Send Message</button>
-          </div>
-        </div>
+        </form>
       </div>
     </div>
     <!-- Contact Start -->
@@ -47,17 +51,46 @@
 </template>
 
 <script>
+import Form from 'vform'
+import {base_url} from "~/plugins/base_url";
+
 export default {
-  name: "contact.vue",
+  name: "mailing-list.vue",
   auth:false,
   head() {
     return {
-      title: "Contact | Market Exchange"
+      title: "Mailing List | Baitul Aman"
     };
   },
+  data(){
+    return {
+      form: new Form({
+        name:'',
+        email:'',
+        message:'',
+      }),
+    }
+  },
+  methods: {
+    store(){
+      this.form.post( base_url + 'api/mailing').then((response)=>{
+        if (response.data.status === 'success'){
+           this.form.name ='',
+           this.form.email ='',
+           this.form.message = '',
+           this.$toaster.success("Successfully Inserted")
+        }
+      }).catch((error)=>{
+        //
+      })
+    },
+  }
 }
 </script>
 
 <style scoped>
-
+.error{
+  color: red;
+  font-size: 12px;
+}
 </style>

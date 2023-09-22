@@ -28,7 +28,9 @@
                 <a class="text-dark px-2" href=""><i class="fab fa-twitter"></i></a>
                 <a class="text-dark px-2" href=""><i class="fab fa-linkedin-in"></i></a>
                 <a class="text-dark px-2" href=""><i class="fab fa-instagram"></i></a>
-                <a class="text-body ps-4" href=""><i class="fa fa-lock text-dark me-1"></i> Signup/login</a>
+                <nuxt-link v-if="$auth.loggedIn === false" class="text-body ps-4" to="/login"><i class="fa fa-lock text-dark me-1"></i> Signup/login</nuxt-link>
+                <nuxt-link v-if="$auth.loggedIn === true" class="text-body ps-4" to="/customer/profile"><i class="bi bi-person text-dark me-1"></i> Profile</nuxt-link>
+                <a style="color: red!important;" v-if="$auth.loggedIn === true" @click="logout" class="text-body ps-4"><i class="bi bi-box-arrow-left text-dark me-1"></i> Logout</a>
               </div>
             </div>
           </div>
@@ -109,7 +111,7 @@
 
 <!--              <nuxt-link to="/about" class="nav-item nav-link">About</nuxt-link>-->
             </div>
-            <a href="" class="btn btn-success py-2 px-4 d-none d-xl-inline-block">Donate</a>
+            <nuxt-link to="/donate" class="btn btn-success py-2 px-4 d-none d-xl-inline-block">Donate</nuxt-link>
           </div>
         </nav>
       </div>
@@ -128,7 +130,10 @@ export default {
     }
   },
   methods: {
-   //
+    logout(){
+      this.$auth.logout();
+      this.$router.push('/login');
+    }
   }
 }
 </script>

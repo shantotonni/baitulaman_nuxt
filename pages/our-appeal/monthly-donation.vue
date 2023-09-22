@@ -29,11 +29,13 @@
           <div class="col-sm-8 offset-2" style="text-align: left">
             <p class="mb-0" style="font-weight: bold">We greatly appreciate receiving a monthly donation to help us keep the mosque up and running by paying our rent, utility bills, and other expenses.</p>
             <br>
-         <div>
-           <p>* <span style="font-weight: bold">Cash/Check</span>: please visit us at our mosque.</p>
-           <p>* <span style="font-weight: bold">e-transfer</span>: send us money to baitulamanyeg@gmail.com from any Canadian bank.</p>
-           <p>* <span style="font-weight: bold">Credit Card</span>: Donate using a credit card by filling up the form below:</p>
-         </div>
+           <div>
+             <p>* <span style="font-weight: bold">Cash/Check</span>: please visit us at our mosque.</p>
+             <p>* <span style="font-weight: bold">e-transfer</span>: send us money to baitulamanyeg@gmail.com from any Canadian bank.</p>
+             <p>* <span style="font-weight: bold">Credit Card</span>: Donate using a credit card by filling up the form below:</p>
+           </div>
+            <br>
+            <nuxt-link to="/donate" class="btn btn-primary btn-lg btn-block" style="display: block">Donate</nuxt-link>
           </div>
         </div>
       </div>

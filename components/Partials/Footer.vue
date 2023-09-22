@@ -3,21 +3,6 @@
     <!-- Footer Start -->
     <div class="container-fluid footer pt-5 wow fadeIn" data-wow-delay="0.1s">
       <div class="container py-5">
-        <div class="row py-5">
-          <div class="col-lg-7">
-            <h1 class="text-light mb-0">Subscribe our newsletter</h1>
-            <p class="text-secondary">Get the latest news and other tips</p>
-          </div>
-          <div class="col-lg-5">
-            <div class="position-relative mx-auto">
-              <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-              <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Subcribe</button>
-            </div>
-          </div>
-          <div class="col-12">
-            <div class="border-top border-secondary"></div>
-          </div>
-        </div>
         <div class="row g-4 footer-inner">
           <div class="col-md-6 col-lg-6 col-xl-3">
             <div class="footer-item mt-5">
@@ -47,14 +32,10 @@
             <div class="footer-item mt-5">
               <h4 class="text-light mb-4">Explore Link</h4>
               <div class="d-flex flex-column align-items-start">
-                <a class="text-body mb-2" href=""><i class="fa fa-check text-primary me-2"></i>Home</a>
-                <a class="text-body mb-2" href=""><i class="fa fa-check text-primary me-2"></i>About Us</a>
-                <a class="text-body mb-2" href=""><i class="fa fa-check text-primary me-2"></i>Our Features</a>
-                <a class="text-body mb-2" href=""><i class="fa fa-check text-primary me-2"></i>Contact us</a>
-                <a class="text-body mb-2" href=""><i class="fa fa-check text-primary me-2"></i>Our Blog</a>
-                <a class="text-body mb-2" href=""><i class="fa fa-check text-primary me-2"></i>Our Events</a>
-                <a class="text-body mb-2" href=""><i class="fa fa-check text-primary me-2"></i>Donations</a>
-                <a class="text-body mb-2" href=""><i class="fa fa-check text-primary me-2"></i>Sermons</a>
+                <nuxt-link class="text-body mb-2" to="/"><i class="fa fa-check text-primary me-2"></i>Home</nuxt-link>
+                <nuxt-link class="text-body mb-2" to="/about"><i class="fa fa-check text-primary me-2"></i>About Us</nuxt-link>
+                <nuxt-link class="text-body mb-2" to="/contact-us"><i class="fa fa-check text-primary me-2"></i>Contact us</nuxt-link>
+                <nuxt-link class="text-body mb-2" to="/donate"><i class="fa fa-check text-primary me-2"></i>Donations</nuxt-link>
               </div>
             </div>
           </div>
@@ -83,12 +64,9 @@
         <div class="border-top border-secondary pb-4"></div>
         <div class="row">
           <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
+            &copy; <nuxt-link class="border-bottom" to="/">Baitul Aman</nuxt-link>, All Right Reserved.
           </div>
           <div class="col-md-6 text-center text-md-end">
-            <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-            <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-            <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
             Designed By <a class="border-bottom" href="https://htmlcodex.com">Sentu</a>
           </div>
         </div>

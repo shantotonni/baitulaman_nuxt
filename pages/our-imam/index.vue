@@ -70,10 +70,10 @@ export default {
   },
   mounted() {
     document.title = 'Our Imam | Baitul Aman';
-    this.getPages();
+    this.getImam();
   },
   methods: {
-    getPages(){
+    getImam(){
       this.$axios.get( base_url + 'api/get-imam').then((response)=>{
         this.imam = response.data.imam;
       }).catch((error)=>{
