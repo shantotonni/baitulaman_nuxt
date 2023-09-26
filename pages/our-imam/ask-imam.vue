@@ -6,7 +6,7 @@
         <div class="row">
           <div class="col-lg-7">
             <div class="hero-header-inner animated zoomIn">
-              <h1 class="display-1 text-dark" style="font-size: 3rem">Ask The Imam</h1>
+              <h1 class="text-dark">Ask The Imam</h1>
               <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item"><nuxt-link to="/">Home</nuxt-link></li>
                 <li class="breadcrumb-item text-dark" aria-current="page">Ask The Imam</li>

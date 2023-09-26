@@ -39,7 +39,7 @@
       <div class="container">
         <nav class="navbar navbar-light navbar-expand-lg py-3">
           <nuxt-link to="/" class="navbar-brand">
-            <img src="/assets/img/logo/logo.png" alt="">
+            <img src="/assets/img/logo/logo.png" alt="" style="width: 155px;">
           </nuxt-link>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fa fa-bars text-primary"></span>
@@ -56,14 +56,14 @@
                   <nuxt-link to="/our-appeal/sponsor-an-ifter" class="dropdown-item">Sponsor an Iftar</nuxt-link>
                   <nuxt-link to="/our-appeal/zakat-al-fitr-fitra" class="dropdown-item">Zakat Al-Fitr (Fitra)</nuxt-link>
                   <nuxt-link to="/our-appeal/zakat-al-mal" class="dropdown-item">Zakat Al-Mal</nuxt-link>
-                  <nuxt-link to="/our-appeal/gofundme-com" class="dropdown-item">GoFundMe.com</nuxt-link>
+<!--                  <nuxt-link to="/our-appeal/gofundme-com" class="dropdown-item">GoFundMe.com</nuxt-link>-->
                 </div>
               </div>
               <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">News & Events</a>
                 <div class="dropdown-menu m-0 rounded-0">
-                  <nuxt-link to="/news-and-events/new" class="dropdown-item">News</nuxt-link>
-                  <nuxt-link to="/news-and-events/events" class="dropdown-item">Events</nuxt-link>
+                  <nuxt-link to="/news-and-events" class="dropdown-item">News & Events</nuxt-link>
+<!--                  <nuxt-link to="/news-and-events/events" class="dropdown-item"></nuxt-link>-->
                   <nuxt-link to="/news-and-events/visit-facebook" class="dropdown-item">Visit Facebook</nuxt-link>
                 </div>
               </div>

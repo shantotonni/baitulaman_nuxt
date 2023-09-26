@@ -1,7 +1,7 @@
 //for server
-let api_url = 'https://apibaitul.newmusicparadigm.com/'
+//let api_url = 'https://apibaitul.newmusicparadigm.com/'
 //for Local
-//let api_url = 'http://127.0.0.1:8000/'
+let api_url = 'http://127.0.0.1:8000/'
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -26,6 +26,7 @@ export default {
       { src: '/assets/lib/easing/easing.min.js' },
       { src: '/assets/lib/waypoints/waypoints.min.js' },
       { src: '/assets/lib/owlcarousel/owl.carousel.min.js' },
+      { src: 'https://checkout.stripe.com/checkout.js' },
       { src: '/assets/js/main.js' },
     ],
     link: [

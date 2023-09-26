@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-lg-7">
             <div class="hero-header-inner animated zoomIn">
-              <h1 class="display-1 text-dark" style="font-size: 3rem">GoFundMe.com</h1>
+              <h1 class="text-dark">GoFundMe.com</h1>
               <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item"><nuxt-link to="/">Home</nuxt-link></li>
                 <li class="breadcrumb-item text-dark" aria-current="page">GoFundMe.com</li>

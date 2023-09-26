@@ -6,10 +6,10 @@
         <div class="row">
           <div class="col-lg-7">
             <div class="hero-header-inner animated zoomIn">
-              <h1 class="text-dark">Profile</h1>
+              <h1 class="text-dark">Invoice</h1>
               <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item"><nuxt-link to="/">Home</nuxt-link></li>
-                <li class="breadcrumb-item text-dark" aria-current="page">Profile</li>
+                <li class="breadcrumb-item text-dark" aria-current="page">Invoice</li>
               </ol>
             </div>
           </div>
@@ -27,7 +27,28 @@
             <sidebar />
           </div>
           <div class="col-lg-9">
-            <p class="text-dark">Profile</p>
+            <table class="table table-bordered table-striped dt-responsive nowrap dataTable no-footer dtr-inline table-sm small">
+              <thead>
+              <tr>
+                <th>SN</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+              </thead>
+              <tbody>
+<!--              <tr v-for="(blog, i) in blogs" :key="blog.id" v-if="blogs.length">-->
+<!--                <th class="text-center" scope="row">{{ ++i }}</th>-->
+<!--                <td class="text-left">{{ blog.title }}</td>-->
+<!--                <td class="text-center">-->
+<!--                  <img v-if="blog.image" height="40" width="40"-->
+<!--                       :src="tableImage(blog.image)" alt="">-->
+<!--                </td>-->
+<!--                <td class="text-left">{{ blog.status }}</td>-->
+<!--              </tr>-->
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

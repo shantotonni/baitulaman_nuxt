@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper" v-if="!loading">
     <Header />
     <Nuxt />
     <Footer />
@@ -10,7 +10,16 @@ import Footer from '~/components/Partials/Footer'
 import Header from "~/components/Partials/Header";
 export default {
   name: 'default',
-  components: { Footer, Header }
+  components: { Footer, Header },
+  data: () => ({
+    loading: false
+  }),
+  created() {
+    var self = this;
+    self.$nextTick(function() {
+      self.loaded = true;
+    })
+  }
 }
 </script>
 

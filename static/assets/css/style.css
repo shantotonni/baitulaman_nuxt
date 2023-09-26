@@ -139,9 +139,9 @@ h4, h5, h6, .h4, .h5, .h6 {
 }
 
 .navbar .navbar-nav .nav-link {
-    padding: 12px;
+    padding: 8px;
     color: #157347;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 600;
     transition: .5s;
 }
