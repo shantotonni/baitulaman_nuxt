@@ -28,9 +28,9 @@
                 <a class="text-dark px-2" href=""><i class="fab fa-twitter"></i></a>
                 <a class="text-dark px-2" href=""><i class="fab fa-linkedin-in"></i></a>
                 <a class="text-dark px-2" href=""><i class="fab fa-instagram"></i></a>
-                <nuxt-link v-if="$auth.loggedIn === false" class="text-body ps-4" to="/login"><i class="fa fa-lock text-dark me-1"></i> Signup/login</nuxt-link>
-                <nuxt-link v-if="$auth.loggedIn === true" class="text-body ps-4" to="/customer/profile"><i class="bi bi-person text-dark me-1"></i> Profile</nuxt-link>
-                <a style="color: red!important;" v-if="$auth.loggedIn === true" @click="logout" class="text-body ps-4"><i class="bi bi-box-arrow-left text-dark me-1"></i> Logout</a>
+                <nuxt-link v-show="$auth.loggedIn === false" class="text-body ps-4" to="/login"><i class="fa fa-lock text-dark me-1"></i> Signup/login</nuxt-link>
+                <nuxt-link v-show="$auth.loggedIn === true" class="text-body ps-4" to="/customer/profile"><i class="bi bi-person text-dark me-1"></i> Profile</nuxt-link>
+                <a style="color: red!important;" v-show="$auth.loggedIn === true" @click="logout" class="text-body ps-4"><i class="bi bi-box-arrow-left text-dark me-1"></i> Logout</a>
               </div>
             </div>
           </div>

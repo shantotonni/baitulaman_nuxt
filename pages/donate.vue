@@ -29,21 +29,24 @@
           <div class="col-sm-8 offset-2" style="text-align: left">
             <div style="text-align: center">
               <div class="row g-4 wow fadeIn" data-wow-delay="0.3s">
-                <a href="#" class="payment-methods-btn center-align"
-                   @click.prevent="paymentForm()">
-                  Action
-                </a>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control bg-transparent p-3" placeholder="Purpose (optional)" v-model="purpose">
+                </div>
+                <div class="col-sm-6">
+                  <input type="number" class="form-control bg-transparent p-3" placeholder="Amount" readonly v-model="amount">
+                </div>
               </div>
               <br>
-<!--              <stripe-checkout-->
-<!--                ref="checkoutRef"-->
-<!--                mode="payment"-->
-<!--                :pk="publishableKey"-->
-<!--                :line-items="lineItems"-->
-<!--                :success-url="successURL"-->
-<!--                :cancel-url="cancelURL"-->
-<!--              />-->
-<!--              <button @click="submit">Pay now!</button>-->
+              <br>
+              <stripe-checkout
+                ref="checkoutRef"
+                mode="payment"
+                :pk="publishableKey"
+                :line-items="lineItems"
+                :success-url="successURL"
+                :cancel-url="cancelURL"
+              />
+              <button @click="submit">Pay now!</button>
 
             </div>
             <br>
@@ -51,21 +54,20 @@
         </div>
       </div>
     </div>
-    <!-- Contact Start -->
   </div>
 </template>
 
 <script>
-//import { StripeCheckout } from '@vue-stripe/vue-stripe';
+import { StripeCheckout } from '@vue-stripe/vue-stripe';
 import {base_url} from "~/plugins/base_url";
 import axios from "axios";
 
 export default {
   name: "donate.vue",
   components: {
-    //StripeCheckout,
+    StripeCheckout,
   },
-  auth:false,
+  auth:true,
   head() {
     return {
       title: "Donate | DadHQ"
@@ -74,53 +76,41 @@ export default {
   data () {
     return {
       user: this.$auth.user,
-      type:'stripe',
-      title:'demo',
-      available_to_client: 1,
-      enable: 1,
-      purpose:'',
-      amount:'',
-      publishableKey : 'pk_live_It4joF0iwve2TBZVAViUYvnH',
+      publishableKey : 'pk_test_899fIi8daihde0gtgs2UrSeR',
       sessionId : null,
       loading: false,
-      stripeBill: 0,
-      selectedMethodId : 0,
-      paymentMethodClicked: false,
-      isPaymentMethodDefault: false,
-      paymentMethodType: '',
+      lineItems: [
+        {
+          price: 'price_1NsmJ9G1iNFde2c46crkvfKW',
+          quantity: 1,
+        },
+      ],
+      successURL: 'https://baitul.newmusicparadigm.com/',
+      cancelURL: 'https://baitul.newmusicparadigm.com/',
+      purpose : '',
+      amount : 100,
+      userId : this.$auth.user.id
 
     };
   },
   mounted() {
-    //this.getSession()
+    this.getSession()
   },
   methods: {
-    paymentForm() {
-      let instance = this;
-      if (instance.publishableKey) {
-        instance.handler = StripeCheckout.configure({
-          key: instance.publishableKey,
-          locale: 'auto',
-          token: function (token) {
-
-          },
-        });
-      }
+    getSession(){
+      this.$axios.get( base_url + 'api/get-session?purpose=' + this.purpose
+        + "&amount=" + this.amount
+        + "&userId=" + this.userId
+      ).then((response)=>{
+        this.pages = response.data.pages;
+        //console.log(response);
+      }).catch((error)=>{
+      })
     },
-    // getSession(){
-    //   this.$axios.get( base_url + 'api/get-session?purpose=' + this.purpose
-    //     + "&amount=" + this.amount
-    //     + "&UserId=" + this.user.id
-    //   ).then((response)=>{
-    //     this.pages = response.data.pages;
-    //     //console.log(response);
-    //   }).catch((error)=>{
-    //   })
-    // },
-    // submit () {
-    //   // You will be redirected to Stripe's secure checkout page
-    //   this.$refs.checkoutRef.redirectToCheckout();
-    // },
+    submit () {
+      // You will be redirected to Stripe's secure checkout page
+      this.$refs.checkoutRef.redirectToCheckout();
+    },
   },
 }
 </script>

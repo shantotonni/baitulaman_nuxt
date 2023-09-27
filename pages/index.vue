@@ -148,7 +148,8 @@
               <div class="ms-3">
                 <h4 class="mb-3">{{ event.title }}</h4>
                 <p class="mb-4" v-html="event.description"></p>
-                <!--              <a href="#" class="btn btn-primary px-3">Join Now</a>-->
+                <a class="btn btn-primary px-3" @click="eventJoin(event.id)" v-if="user">Join Now</a>
+                <nuxt-link to="/login" class="btn btn-primary px-3" v-else>Join Now</nuxt-link>
               </div>
             </div>
             <div class="col-12 col-lg-4">
@@ -318,6 +319,7 @@ export default {
   },
   data() {
     return {
+      user: this.$auth.user,
       imam: {},
       program_schedule: [],
       events: [],
@@ -329,6 +331,7 @@ export default {
     this.getImam();
     this.getProgramSchedule();
     this.getOurEvents();
+    console.log(this.user)
     },
   methods: {
     getImam(){
@@ -355,6 +358,13 @@ export default {
     },
     eventimage(image){
       return base_url + "images/event/"+ image;
+    },
+    eventJoin(id){
+      this.$axios.get( base_url + 'api/join-events?EventId=' + id, {headers:{Authorization : this.$auth.strategy.token.get() }}).then((response)=>{
+        console.log(response)
+        this.$toaster.success("Successfully Submitted! Please Go to Your Profile");
+      }).catch((error)=>{
+      })
     },
     loadOwlSlider(){
       // Testimonial carousel
