@@ -26,7 +26,7 @@ export default {
       { src: '/assets/lib/easing/easing.min.js' },
       { src: '/assets/lib/waypoints/waypoints.min.js' },
       { src: '/assets/lib/owlcarousel/owl.carousel.min.js' },
-      //{ src: 'https://checkout.stripe.com/checkout.js' },
+      { src: 'https://checkout.stripe.com/checkout.js' },
       { src: '/assets/js/main.js' },
     ],
     link: [
@@ -68,32 +68,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
     '@nuxtjs/toast',
-    '@nuxtjs/i18n',
   ],
-  i18n: {
-    lazy: true,
-    langDir : "locales",
-    strategy: 'prefix_except_default',
-    locales: [
-      {
-        code: "en-US",
-        iso:"en-US",
-        name: "English(US)",
-        file: "en-US.json"
-      },
-      {
-        code: "bn-BD",
-        iso:"bn-BD",
-        name: "Bangla",
-        file: "bn-BD.json"
-      }
-    ],
-    defaultLocale: "bn-BD",
-    vueI18n: {
-       fallbackLocale: 'bn-BD',
-    }
-  },
-
   auth: {
     strategies: {
       local: {

@@ -148,7 +148,7 @@
               <div class="ms-3">
                 <h4 class="mb-3">{{ event.title }}</h4>
                 <p class="mb-4" v-html="event.description"></p>
-                <a class="btn btn-primary px-3" @click="eventJoin(event.id)" v-if="user">Join Now</a>
+                <a class="btn btn-primary px-3" @click="eventJoin(event.id)" v-if="$auth.loggedIn !== false">Join Now</a>
                 <nuxt-link to="/login" class="btn btn-primary px-3" v-else>Join Now</nuxt-link>
               </div>
             </div>
@@ -202,100 +202,30 @@
             <h1 class="display-3">What People Say About Islam</h1>
           </div>
           <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay="0.1s">
-            <div class="testimonial-item">
-              <div class="d-flex mb-3">
-                <div class="position-relative">
-                  <img src="/assets/img/testimonial-1.jpg" class="img-fluid" alt="">
-                  <div class="btn-md-square bg-primary rounded-circle position-absolute" style="top: 25px; left: -25px;">
-                    <i class="fa fa-quote-left text-dark"></i>
+            <div v-for="(testimonial, i) in testimonials" :key="testimonial.id" v-if="testimonials.length">
+              <div class="testimonial-item">
+                <div class="d-flex mb-3">
+                  <div class="position-relative">
+                    <img :src="testimonialImage(testimonial.image)" class="img-fluid" alt="">
+                    <div class="btn-md-square bg-primary rounded-circle position-absolute" style="top: 25px; left: -25px;">
+                      <i class="fa fa-quote-left text-dark"></i>
+                    </div>
+                  </div>
+                  <div class="ps-3 my-auto ">
+                    <h5 class="mb-0">{{ testimonial.name }}</h5>
+                    <p class="m-0">Profession</p>
                   </div>
                 </div>
-                <div class="ps-3 my-auto ">
-                  <h5 class="mb-0">Full Name</h5>
-                  <p class="m-0">Profession</p>
-                </div>
-              </div>
-              <div class="testimonial-content">
-                <div class="d-flex">
-                  <i class="fas fa-star text-primary"></i>
-                  <i class="fas fa-star text-primary"></i>
-                  <i class="fas fa-star text-primary"></i>
-                  <i class="fas fa-star text-primary"></i>
-                  <i class="fas fa-star text-primary"></i>
-                </div>
-                <p class="fs-5 m-0 pt-3">Lorem ipsum dolor sit amet elit, sed do tempor ut labore et dolore magna aliqua. Ut enim ad minim quis.</p>
-              </div>
-            </div>
-            <div class="testimonial-item">
-              <div class="d-flex mb-3">
-                <div class="position-relative">
-                  <img src="/assets/img/testimonial-2.jpg" class="img-fluid" alt="">
-                  <div class="btn-md-square bg-primary rounded-circle position-absolute" style="top: 25px; left: -25px;">
-                    <i class="fa fa-quote-left text-dark"></i>
+                <div class="testimonial-content">
+                  <div class="d-flex">
+                    <i class="fas fa-star text-primary"></i>
+                    <i class="fas fa-star text-primary"></i>
+                    <i class="fas fa-star text-primary"></i>
+                    <i class="fas fa-star text-primary"></i>
+                    <i class="fas fa-star text-primary"></i>
                   </div>
+                  <p class="fs-5 m-0 pt-3">Lorem ipsum dolor sit amet elit, sed do tempor ut labore et dolore magna aliqua. Ut enim ad minim quis.</p>
                 </div>
-                <div class="ps-3 my-auto ">
-                  <h5 class="mb-0">Full Name</h5>
-                  <p class="m-0">Profession</p>
-                </div>
-              </div>
-              <div class="testimonial-content">
-                <div class="d-flex">
-                  <i class="fas fa-star text-primary"></i>
-                  <i class="fas fa-star text-primary"></i>
-                  <i class="fas fa-star text-primary"></i>
-                  <i class="fas fa-star text-primary"></i>
-                  <i class="fas fa-star text-primary"></i>
-                </div>
-                <p class="fs-5 m-0 pt-3">Lorem ipsum dolor sit amet elit, sed do tempor ut labore et dolore magna aliqua. Ut enim ad minim quis.</p>
-              </div>
-            </div>
-            <div class="testimonial-item">
-              <div class="d-flex mb-3">
-                <div class="position-relative">
-                  <img src="/assets/img/testimonial-3.jpg" class="img-fluid" alt="">
-                  <div class="btn-md-square bg-primary rounded-circle position-absolute" style="top: 25px; left: -25px;">
-                    <i class="fa fa-quote-left text-dark"></i>
-                  </div>
-                </div>
-                <div class="ps-3 my-auto ">
-                  <h5 class="mb-0">Full Name</h5>
-                  <p class="m-0">Profession</p>
-                </div>
-              </div>
-              <div class="testimonial-content">
-                <div class="d-flex">
-                  <i class="fas fa-star text-primary"></i>
-                  <i class="fas fa-star text-primary"></i>
-                  <i class="fas fa-star text-primary"></i>
-                  <i class="fas fa-star text-primary"></i>
-                  <i class="fas fa-star text-primary"></i>
-                </div>
-                <p class="fs-5 m-0 pt-3">Lorem ipsum dolor sit amet elit, sed do tempor ut labore et dolore magna aliqua. Ut enim ad minim quis.</p>
-              </div>
-            </div>
-            <div class="testimonial-item">
-              <div class="d-flex mb-3">
-                <div class="position-relative">
-                  <img src="/assets/img/testimonial-4.jpg" class="img-fluid" alt="">
-                  <div class="btn-md-square bg-primary rounded-circle position-absolute" style="top: 25px; left: -25px;">
-                    <i class="fa fa-quote-left text-dark"></i>
-                  </div>
-                </div>
-                <div class="ps-3 my-auto ">
-                  <h5 class="mb-0">Full Name</h5>
-                  <p class="m-0">Profession</p>
-                </div>
-              </div>
-              <div class="testimonial-content">
-                <div class="d-flex">
-                  <i class="fas fa-star text-primary"></i>
-                  <i class="fas fa-star text-primary"></i>
-                  <i class="fas fa-star text-primary"></i>
-                  <i class="fas fa-star text-primary"></i>
-                  <i class="fas fa-star text-primary"></i>
-                </div>
-                <p class="fs-5 m-0 pt-3">Lorem ipsum dolor sit amet elit, sed do tempor ut labore et dolore magna aliqua. Ut enim ad minim quis.</p>
               </div>
             </div>
           </div>
@@ -323,15 +253,16 @@ export default {
       imam: {},
       program_schedule: [],
       events: [],
+      testimonials: [],
     };
   },
   mounted() {
     document.title = 'Home | Baitul Aman';
+    this.getTestimonial();
     this.loadOwlSlider()
     this.getImam();
     this.getProgramSchedule();
     this.getOurEvents();
-    console.log(this.user)
     },
   methods: {
     getImam(){
@@ -353,11 +284,21 @@ export default {
       }).catch((error)=>{
       })
     },
+    getTestimonial(){
+      this.$axios.get( base_url + 'api/get-testimonial').then((response)=>{
+        this.testimonials = response.data.testimonials;
+        console.log(response)
+      }).catch((error)=>{
+      })
+    },
     image(image){
       return base_url + "images/imam/"+ image;
     },
     eventimage(image){
       return base_url + "images/event/"+ image;
+    },
+    testimonialImage(image){
+      return base_url + "images/testimonial/"+ image;
     },
     eventJoin(id){
       this.$axios.get( base_url + 'api/join-events?EventId=' + id, {headers:{Authorization : this.$auth.strategy.token.get() }}).then((response)=>{
@@ -367,33 +308,86 @@ export default {
       })
     },
     loadOwlSlider(){
-      // Testimonial carousel
-      $(".testimonial-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1500,
-        dots: false,
-        loop: true,
-        margin: 25,
-        nav : true,
-        navText : [
-          '<i class="bi bi-arrow-left"></i>',
-          '<i class="bi bi-arrow-right"></i>'
-        ],
-        responsive: {
-          0:{
-            items:1
-          },
-          768:{
-            items:1
-          },
-          992:{
-            items:2
-          },
-          1200:{
-            items:3
+      (function ($) {
+        "use strict";
+
+        // Spinner
+        var spinner = function () {
+          setTimeout(function () {
+            if ($('#spinner').length > 0) {
+              $('#spinner').removeClass('show');
+            }
+          }, 1);
+        };
+        spinner(0);
+
+
+        // Initiate the wowjs
+        new WOW().init();
+
+
+        // Fixed Navbar
+        $(window).scroll(function () {
+          if ($(window).width() < 992) {
+            if ($(this).scrollTop() > 45) {
+              $('.fixed-top').addClass('bg-white shadow');
+            } else {
+              $('.fixed-top').removeClass('bg-white shadow');
+            }
+          } else {
+            if ($(this).scrollTop() > 45) {
+              $('.fixed-top').addClass('bg-white shadow').css('top', -45);
+            } else {
+              $('.fixed-top').removeClass('bg-white shadow').css('top', 0);
+            }
           }
-        }
-      });
+        });
+
+
+        // Back to top button
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 300) {
+            $('.back-to-top').fadeIn('slow');
+          } else {
+            $('.back-to-top').fadeOut('slow');
+          }
+        });
+        $('.back-to-top').click(function () {
+          $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+          return false;
+        });
+
+
+        // Testimonial carousel
+        $(".testimonial-carousel").owlCarousel({
+          autoplay: true,
+          smartSpeed: 1500,
+          dots: false,
+          loop: true,
+          margin: 25,
+          nav : true,
+          navText : [
+            '<i class="bi bi-arrow-left"></i>',
+            '<i class="bi bi-arrow-right"></i>'
+          ],
+          responsive: {
+            0:{
+              items:1
+            },
+            768:{
+              items:1
+            },
+            992:{
+              items:2
+            },
+            1200:{
+              items:3
+            }
+          }
+        });
+
+      })(jQuery);
+
     }
   },
 }
