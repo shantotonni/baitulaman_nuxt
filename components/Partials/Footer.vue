@@ -7,8 +7,8 @@
           <div class="col-md-6 col-lg-6 col-xl-3">
             <div class="footer-item mt-5">
               <h4 class="text-light mb-4">THE<span class="text-primary">Mosque</span></h4>
-              <p class="mb-4 text-secondary">Nostrud exertation ullamco labor nisi aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
-              <a href="" class="btn btn-primary py-2 px-4">Donate Now</a>
+              <p class="mb-4 text-secondary">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+              <nuxt-link to="/donate" class="btn btn-primary py-2 px-4">Donate Now</nuxt-link>
             </div>
           </div>
           <div class="col-md-6 col-lg-6 col-xl-3">

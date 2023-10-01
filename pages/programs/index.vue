@@ -38,8 +38,8 @@
                   </div>
                 </div>
                 <a href="" class="d-inline-block h4 lh-sm mb-3">{{ program.title }}</a>
-                <p class="mb-4" v-html="textTrunate(program.description)"></p>
-                <nuxt-link to="/" class="btn btn-primary px-3">More Details</nuxt-link>
+                <p class="mb-4" v-html="textTruncate(program.description)"></p>
+                <nuxt-link :to="`/programs/program-details/${program.id}`" class="btn btn-primary px-3">More Details</nuxt-link>
               </div>
             </div>
           </div>
@@ -80,7 +80,7 @@ export default {
     image(image){
       return base_url + "images/program/"+ image;
     },
-    textTrunate(text){
+    textTruncate(text){
       return text.substring(0,100)+ '.....';
     }
   },
