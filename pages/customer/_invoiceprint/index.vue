@@ -20,19 +20,19 @@
                 <div class="card pricing-box">
                   <div class="card-body" id="print">
                     <div class="student">
-                      <h4 style="text-align: center;font-weight: bold;margin: 0;color:#6a6ad1">Baitul Aman Islamic Society Edmonton</h4>
-<!--                      <img src="/assets/img/logo/logo.png" style="width: 155px; margin-top: -56px;margin-left: 10px;" alt="not found">-->
-                      <br>
+                      <img src="/assets/img/logo/logo.png" style="width: 155px;margin: 0 auto;display: flex" alt="not found">
+                      <h3 style="text-align: center;font-weight: bold;margin: 0;color:rgb(106, 106, 209);font-size: 18px">Baitul Aman Islamic Society Edmonton</h3>
+                      <h3 style="text-align: center;font-weight: bold;color: rgb(106, 106, 209);border:1px solid;font-size: 18px">Donation Receipt</h3>
                       <br>
                       <div class="col-md-12 first_part" >
                         <div style="text-align: left">
                           <div class="col-md-7">
-                            <p style="font-size: 18px;color: rgb(106, 106, 209)">Donor Name : {{ invoice.customer_name }}</p>
-                            <p style="font-size: 18px;color: rgb(106, 106, 209)">Phone Number : {{ invoice.customer_phone }}</p>
-                            <p style="font-size: 18px;color: rgb(106, 106, 209)">Email : {{ invoice.customer_email }}</p>
-                            <p style="font-size: 18px;color: rgb(106, 106, 209)">Purpose : {{ invoice.purpose }}</p>
-                            <p style="font-size: 18px;color: rgb(106, 106, 209)">Amount : {{ invoice.amount }}</p>
-                            <p style="font-size: 18px;color: rgb(106, 106, 209)">Date : {{ invoice.date }}</p>
+                            <p style="font-size: 14px;color: rgb(106, 106, 209)">Donor Name : {{ invoice.customer_name }}</p>
+                            <p style="font-size: 14px;color: rgb(106, 106, 209)">Phone Number : {{ invoice.customer_phone }}</p>
+                            <p style="font-size: 14px;color: rgb(106, 106, 209)">Email : {{ invoice.customer_email }}</p>
+                            <p style="font-size: 14px;color: rgb(106, 106, 209)">Purpose : {{ invoice.purpose }}</p>
+                            <p style="font-size: 14px;color: rgb(106, 106, 209)">Amount : {{ invoice.amount }}</p>
+                            <p style="font-size: 14px;color: rgb(106, 106, 209)">Date : {{ invoice.date }}</p>
                           </div>
                         </div>
                       </div>
