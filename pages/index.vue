@@ -200,7 +200,7 @@
             <p class="fs-5 text-uppercase text-primary">Testimonial</p>
             <h1 class="display-3">What People Say About Islam</h1>
           </div>
-          <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay="0.1s">
+          <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay="0.2s">
             <div class="testimonial-item" v-for="(testimonial, i) in testimonials" :key="testimonial.id" v-if="testimonials.length">
               <div class="d-flex mb-3">
                 <div class="position-relative">
@@ -286,7 +286,7 @@ export default {
     document.title = 'Home | Baitul Aman';
     setTimeout(()=>{
       this.loadOwlSlider()
-    },500)
+    },1000)
     this.getImam();
     this.getProgramSchedule();
     this.getOurEvents();

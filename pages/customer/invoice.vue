@@ -36,7 +36,8 @@
                 <th>Customer Phone</th>
                 <th>Purpose</th>
                 <th>Amount</th>
-<!--                <th>Action</th>-->
+                <th>Payment Date</th>
+                <th>Action</th>
               </tr>
               </thead>
               <tbody>
@@ -46,10 +47,11 @@
                 <td class="text-left">{{ donate.customer_email }}</td>
                 <td class="text-left">{{ donate.customer_phone }}</td>
                 <td class="text-left">{{ donate.purpose }}</td>
-                <td class="text-left">{{ donate.amount }}</td>
-<!--                <td class="text-left">-->
-<!--                  <router-link :to="`/customer/${donate.id}`" class="btn btn-info btn-sm"><i class="mdi mdi-printer"></i> Print</router-link>-->
-<!--                </td>-->
+                <td class="text-right">{{ donate.amount }}</td>
+                <td class="text-left">{{ donate.date }}</td>
+                <td class="text-left">
+                  <nuxt-link :to="`${donate.id}`" class="btn btn-info btn-sm"><i class="mdi mdi-printer"></i> View</nuxt-link>
+                </td>
               </tr>
               </tbody>
             </table>
@@ -63,7 +65,6 @@
 
 <script>
 import sidebar from "~/components/Partials/sidebar";
-import Form from 'vform'
 import {base_url} from "~/plugins/base_url";
 
 export default {
