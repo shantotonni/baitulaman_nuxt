@@ -60,22 +60,25 @@
                 </div>
               </div>
               <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">News & Events</a>
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">News, Events & Programs</a>
                 <div class="dropdown-menu m-0 rounded-0">
                   <nuxt-link to="/news-and-events" class="dropdown-item">News & Events</nuxt-link>
-<!--                  <nuxt-link to="/news-and-events/events" class="dropdown-item"></nuxt-link>-->
                   <nuxt-link to="/news-and-events/visit-facebook" class="dropdown-item">Visit Facebook</nuxt-link>
-                </div>
-              </div>
-              <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Programs</a>
-                <div class="dropdown-menu m-0 rounded-0">
                   <nuxt-link to="/programs" class="dropdown-item">Our Programs</nuxt-link>
                   <nuxt-link to="/programs/program-schedule" class="dropdown-item">Program Schedule</nuxt-link>
                   <nuxt-link to="/programs/youth-club" class="dropdown-item">Youth Club</nuxt-link>
                   <nuxt-link to="/programs/maktab-curriculum" class="dropdown-item">Maktab Curriculum</nuxt-link>
                 </div>
               </div>
+<!--              <div class="nav-item dropdown">-->
+<!--                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Programs</a>-->
+<!--                <div class="dropdown-menu m-0 rounded-0">-->
+<!--                  <nuxt-link to="/programs" class="dropdown-item">Our Programs</nuxt-link>-->
+<!--                  <nuxt-link to="/programs/program-schedule" class="dropdown-item">Program Schedule</nuxt-link>-->
+<!--                  <nuxt-link to="/programs/youth-club" class="dropdown-item">Youth Club</nuxt-link>-->
+<!--                  <nuxt-link to="/programs/maktab-curriculum" class="dropdown-item">Maktab Curriculum</nuxt-link>-->
+<!--                </div>-->
+<!--              </div>-->
               <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Contact</a>
                 <div class="dropdown-menu m-0 rounded-0">
@@ -91,11 +94,6 @@
                   <nuxt-link to="/about/objective" class="dropdown-item">Objective</nuxt-link>
                   <nuxt-link to="/about/advisory-board" class="dropdown-item">Advisory Board</nuxt-link>
                   <nuxt-link to="/about/shura-committee" class="dropdown-item">Shura Committee</nuxt-link>
-                </div>
-              </div>
-              <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Meet Imam</a>
-                <div class="dropdown-menu m-0 rounded-0">
                   <nuxt-link to="/our-imam" class="dropdown-item">Our Imam</nuxt-link>
                   <nuxt-link to="/our-imam/ask-imam" class="dropdown-item">Ask The Imam</nuxt-link>
                 </div>

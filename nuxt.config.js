@@ -1,7 +1,7 @@
 //for server
-//let api_url = 'https://apibaitul.newmusicparadigm.com/'
+let api_url = 'https://apibaitul.newmusicparadigm.com/'
 //for Local
-let api_url = 'http://127.0.0.1:8000/'
+//let api_url = 'http://127.0.0.1:8000/'
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target

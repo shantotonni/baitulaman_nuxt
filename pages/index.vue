@@ -100,29 +100,31 @@
         <div class="container py-5">
           <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s">
             <h1 class="display-3" style="">Program Schedule</h1>
-
           </div>
           <div class="row g-4 wow fadeIn" data-wow-delay="0.3s">
-            <div class="col-sm-8 offset-2" style="text-align: left">
+            <div class="col-sm-12" style="text-align: left">
               <h2>Regular programs</h2>
               <p>We regularly add new classes, please visit the mosque for the latest offering.</p>
               <br>
-              <table class="table table-bordered table-striped dt-responsive nowrap dataTable no-footer dtr-inline">
-                <thead>
-                <tr>
-                  <th>Program</th>
-                  <th>Day</th>
-                  <th>Time</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr v-for="(program, i) in program_schedule" :key="program.id" v-if="program_schedule.length">
-                  <td class="text-left">{{ program.name }}</td>
-                  <td class="text-left">{{ program.day }}</td>
-                  <td class="text-left">{{ program.time }}</td>
-                </tr>
-                </tbody>
-              </table>
+              <div class="table-responsive">
+                <table class="table table-bordered table-striped dt-responsive nowrap dataTable no-footer dtr-inline">
+                  <thead>
+                  <tr>
+                    <th>Program</th>
+                    <th>Day</th>
+                    <th>Time</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr v-for="(program, i) in program_schedule" :key="program.id" v-if="program_schedule.length">
+                    <td class="text-left">{{ program.name }}</td>
+                    <td class="text-left">{{ program.day }}</td>
+                    <td class="text-left">{{ program.time }}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+
               <br>
               <p style="font-weight: bold">
                 Note: The Schedule Can Change At Any Time. Please Contact Us Before Coming.
