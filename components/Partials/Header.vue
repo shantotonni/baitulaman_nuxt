@@ -95,9 +95,10 @@
                   <nuxt-link to="/about/objective" class="dropdown-item">Objective</nuxt-link>
                   <nuxt-link to="/about/advisory-board" class="dropdown-item">Founding Members</nuxt-link>
                   <nuxt-link to="/about/shura-committee" class="dropdown-item">Shura Committee</nuxt-link>
+                  <nuxt-link to="/about/sub-committee" class="dropdown-item">Sub Committee</nuxt-link>
                   <nuxt-link to="/our-imam" class="dropdown-item">Our Imam</nuxt-link>
                   <nuxt-link to="/our-imam/ask-imam" class="dropdown-item">Ask The Imam</nuxt-link>
-                  <nuxt-link to="/our-imam/ask-imam" class="dropdown-item">Ask The Board</nuxt-link>
+                  <nuxt-link to="/our-imam/ask-board" class="dropdown-item">Ask The Board</nuxt-link>
                 </div>
               </div>
               <div class="nav-item dropdown">
