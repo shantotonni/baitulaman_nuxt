@@ -23,7 +23,7 @@
       <div class="container py-5">
         <div class="row">
           <div class="col-lg-3">
-            <p class="text-dark" style="background: #246a47;color: white!important;padding: 5px">Customer</p>
+            <p class="text-dark" style="background: #246a47;color: white!important;padding: 5px">User</p>
             <sidebar />
           </div>
           <div class="col-lg-9">

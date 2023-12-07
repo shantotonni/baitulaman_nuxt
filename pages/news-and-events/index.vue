@@ -91,7 +91,7 @@ export default {
   methods: {
     getOurEvents(){
       this.$axios.get( base_url + 'api/get-our-events').then((response)=>{
-        this.events = response.data.events;
+        this.events = response.data.data;
       }).catch((error)=>{
       })
     },

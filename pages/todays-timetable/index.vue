@@ -28,7 +28,7 @@
         <div class="row g-4 wow fadeIn" data-wow-delay="0.3s">
           <div class="row g-5">
             <div>
-              <iframe id="iframe" title="prayerWidget" class="widget-m-top" style="height: 600px;width: 100%; border: 1px solid #ddd;" scrolling="no" src="https://time.my-masjid.com/salahscreen/d4c89c73-355e-4da5-95a2-f399bc4831b3"></iframe>
+              <iframe id="iframe" title="prayerWidget" class="widget-m-top" style="height: 600px;width: 100%; border: 1px solid #ddd;" scrolling="no" src="https://time.my-masjid.com/timingscreen/d4c89c73-355e-4da5-95a2-f399bc4831b3"></iframe>
             </div>
           </div>
         </div>

@@ -38,11 +38,6 @@
                 <img src="/assets/img/fpage.png" class="w-100" alt="" height="400">
               </div>
               <div class="p-4">
-                <div class="blog-meta d-flex justify-content-between pb-2">
-                  <div class="">
-                    <a href=""><i class="fas fa-bookmark text-muted"></i></a>
-                  </div>
-                </div>
                 <a href="https://www.facebook.com/baisYEG" target="_blank" class="d-inline-block h4 lh-sm mb-3">Visit our Facebook Page</a>
                 <br>
                 <a href="https://www.facebook.com/baisYEG" target="_blank" class="btn btn-primary px-3">Please Click</a>
@@ -55,11 +50,6 @@
                 <img src="/assets/img/gpage.png" class="img-fluid w-100" alt="" height="400">
               </div>
               <div class="p-4">
-                <div class="blog-meta d-flex justify-content-between pb-2">
-                  <div class="">
-                    <a href=""><i class="fas fa-bookmark text-muted"></i></a>
-                  </div>
-                </div>
                 <a href="https://www.facebook.com/groups/572986523475842/" target="_blank" class="d-inline-block h4 lh-sm mb-3">Join our Facebook Group:</a>
                 <br>
                 <a href="https://www.facebook.com/groups/572986523475842/" target="_blank" class="btn btn-primary px-3">Please Click</a>
