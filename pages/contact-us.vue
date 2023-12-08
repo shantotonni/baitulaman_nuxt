@@ -84,7 +84,7 @@ export default {
   auth:false,
   head() {
     return {
-      title: "Contact | Market Exchange"
+      title: "Contact | Baitul Aman"
     };
   },
   data() {

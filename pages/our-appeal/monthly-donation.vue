@@ -50,7 +50,7 @@ export default {
   auth:false,
   head() {
     return {
-      title: "One Time Donation | Baitul Aman"
+      title: "Monthly Donation | Baitul Aman"
     };
   },
 }

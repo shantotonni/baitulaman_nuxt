@@ -106,7 +106,7 @@ export default {
   auth:false,
   head() {
     return {
-      title: "Donate | DadHQ"
+      title: "Donate | Baitul Aman"
     };
   },
   data () {
