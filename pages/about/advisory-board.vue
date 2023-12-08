@@ -6,10 +6,10 @@
         <div class="row">
           <div class="col-lg-7">
             <div class="hero-header-inner animated zoomIn">
-              <h1 class="text-dark">Advisory Board</h1>
+              <h1 class="text-dark">Funding Member</h1>
               <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item"><nuxt-link to="/">Home</nuxt-link></li>
-                <li class="breadcrumb-item text-dark" aria-current="page">Advisory Board</li>
+                <li class="breadcrumb-item text-dark" aria-current="page">Funding Member</li>
               </ol>
             </div>
           </div>
@@ -23,14 +23,14 @@
     <div class="container-fluid contact py-5">
       <div class="container py-5">
         <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s">
-          <h1 class="display-3" style="">Advisory Board</h1>
+          <h1 class="display-3" style="">Funding Member</h1>
 
         </div>
         <div class="row g-4 wow fadeIn" data-wow-delay="0.3s">
-          <div class="col-sm-8 offset-2" style="text-align: left">
+          <div class="col-sm-12" style="text-align: center">
             <p>
-              Baitul Aman Islamic Society is happy to announce the formation of an advisory board for future directions of the society.
-              Following honourable community members have kindly agreed to sit in the advisory board:
+              Baitul Aman Islamic Society is happy to announce the formation of an Funding Member for future directions of the society.
+              Following honourable community members have kindly agreed to sit in the Funding Member:
             </p>
             <br>
             <table class="table table-bordered table-striped dt-responsive nowrap dataTable no-footer dtr-inline">
@@ -58,7 +58,7 @@ export default {
   auth:false,
   head() {
     return {
-      title: "Advisory Board | Baitul Aman"
+      title: "Funding Member | Baitul Aman"
     };
   },
   data() {
@@ -67,7 +67,7 @@ export default {
     };
   },
   mounted() {
-    document.title = 'Advisory Board | Baitul Aman';
+    document.title = 'Funding Member | Baitul Aman';
     this.getAbout();
   },
   methods: {

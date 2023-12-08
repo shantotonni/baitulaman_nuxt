@@ -23,7 +23,7 @@
           <h1 class="display-3">Zakat Al-Mal</h1>
         </div>
         <div class="row g-4 wow fadeIn" data-wow-delay="0.3s">
-          <div class="col-sm-8 offset-2" style="text-align: left">
+          <div class="col-sm-12" style="text-align: center">
             <p class="mb-0" style="font-weight: bold">
               <span style="font-weight: bold">Pay your Zakat through us.</span> There is no better time to pay it than in the blessed month of Ramadan for maximizing reward.
             </p>

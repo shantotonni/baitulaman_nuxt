@@ -25,7 +25,7 @@
           <h1 class="display-3">Events</h1>
         </div>
         <div class="row g-4 wow fadeIn" data-wow-delay="0.3s">
-          <div class="col-sm-8 offset-2" style="text-align: left">
+          <div class="col-sm-12" style="text-align: center">
             <p class="mb-0" style="font-weight: bold">
               Welcome to our Events section. Here you can find the highlights of the most recent Events organized by our Mosque.
               You can find a complete list of current and past news on the official Facebook <a href="https://www.facebook.com/baisYEG" target="_blank">page</a> and on the

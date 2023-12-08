@@ -28,7 +28,7 @@
 
         <form action="/charge" method="post" id="payment-form">
           <div class="row g-4 wow fadeIn" data-wow-delay="0.3s">
-            <div class="col-sm-6 offset-3" style="text-align: left">
+            <div class="col-sm-12" style="text-align: center">
               <div style="text-align: center">
                 <ul style="background: #fdecec">
                   <li v-for="(error, i) in displayError" :key="error" v-if="displayError.length" style="text-align: left;color: red;list-style: none">{{ error }}</li>

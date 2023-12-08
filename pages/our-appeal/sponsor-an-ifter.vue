@@ -26,7 +26,7 @@
 
         </div>
         <div class="row g-4 wow fadeIn" data-wow-delay="0.3s">
-          <div class="col-sm-8 offset-2" style="text-align: left">
+          <div class="col-sm-12" style="text-align: center">
             <p class="mb-0" style="font-weight: bold">
               Ramadan is a time Allah (SWT) showers us with his infinite mercy and blessings, and many of us will be working hard to draw closer to Him to seek forgiveness and maximize our rewards.
               One of the best ways to increase our Iman and multiply our reward in the blessed month is by providing iftar to someone less fortunate. It is a beautiful deed that the Prophet (saw) practiced and encouraged his ummah to perform.

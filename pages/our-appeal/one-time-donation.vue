@@ -26,7 +26,7 @@
 
         </div>
         <div class="row g-4 wow fadeIn" data-wow-delay="0.3s">
-          <div class="col-sm-8 offset-2" style="text-align: left">
+          <div class="col-sm-12" style="text-align: center">
             <p class="mb-0" style="font-weight: bold">Please donate a one-time amount to show us your generous support and help us run the mosque.</p>
             <br>
          <div>

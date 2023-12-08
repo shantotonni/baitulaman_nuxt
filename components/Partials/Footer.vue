@@ -7,7 +7,8 @@
           <div class="col-md-6 col-lg-6 col-xl-4">
             <div class="footer-item mt-5">
               <h4 class="text-light mb-4">THE<span class="text-primary">Mosque</span></h4>
-              <p class="mb-4 text-secondary">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+              <p class="mb-4 text-secondary">Come join the Baitul Aman Islamic Society for some amazing times in Edmonton, AB! Enjoy prayers, Fridays at the mosque, special Ramadan events, delicious Iftar meals,
+                Quran classes, fun discussions, and great social gatherings. It's all happening – be part of the excitement with us!</p>
               <nuxt-link to="/donate" class="btn btn-primary py-2 px-4">Donate Now</nuxt-link>
             </div>
           </div>

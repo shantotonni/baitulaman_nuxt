@@ -51,15 +51,61 @@
       <div class="container-fluid about py-5">
         <div class="container py-5">
           <div class="row g-5">
-            <div class="col-xl-6">
-              <img src="/assets/img/about.jpg" style="height: 100%" class="img-fluid pb-3 wow zoomIn" data-wow-delay="0.1s" alt="">
-            </div>
-            <div class="col-xl-6 wow fadeIn" data-wow-delay="0.5s">
+<!--            <div class="col-xl-6">-->
+<!--              <img src="/assets/img/about.jpg" style="height: 100%" class="img-fluid pb-3 wow zoomIn" data-wow-delay="0.1s" alt="">-->
+<!--            </div>-->
+            <div class="col-xl-12 wow fadeIn" data-wow-delay="0.5s">
               <p class="fs-5 text-uppercase text-primary">About THEMosque</p>
               <h1 class="display-5 pb-4 m-0">Allah Help Those Who Help Themselves</h1>
-              <div v-if="pages">
-                <p v-html="pages.body"></p>
+              <p class="pb-4">Come join the Baitul Aman Islamic Society for some amazing times in Edmonton, AB! Enjoy prayers, Fridays at the mosque, special Ramadan events, delicious Iftar meals, Quran classes,
+                fun discussions, and great social gatherings. It's all happening – be part of the excitement with us!</p>
+              <div class="row g-4 mb-4">
+                <div class="col-md-6">
+                  <div class="ps-3 d-flex align-items-center justify-content-start">
+                    <span class="bg-primary btn-md-square rounded-circle mt-4 me-2"><i class="fa fa-eye text-dark fa-4x mb-5 pb-2"></i></span>
+                    <div class="ms-4">
+                      <h5>Our Vision</h5>
+                      <p>To become a vibrant and inclusive hub of Islamic spirituality, education, and community engagement, where the BAIS mosque in Edmonton stands as a beacon of unity, fostering knowledge, compassion, and enduring connections within the Muslim community and beyond.
+                        Our long-term vision is to establish a complete mosque that serves as a symbol of enduring charity, leaving a lasting legacy for generations to come.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="ps-3 d-flex align-items-center justify-content-start">
+                    <span class="bg-primary btn-md-square rounded-circle mt-4 me-2"><i class="fa fa-flag text-dark fa-4x mb-5 pb-2"></i></span>
+                    <div class="ms-4">
+                      <h5>Our Mission</h5>
+                      <p>BAIS, a registered non-profit organization in Alberta, is dedicated to educational, religious, and social purposes, emphasizing a moderate understanding of Islam.
+                        Its mission involves fostering community engagement, providing educational programs, and enhancing the moral and social well-being of Muslims in Edmonton while advancing the cause of Islam as a complete way of life.</p>
+                    </div>
+                  </div>
+                </div>
               </div>
+              <div class="bg-light p-3 mb-4">
+                <div class="row align-items-center justify-content-center">
+                  <div class="col-3">
+                    <img src="/assets/img/about-child.jpg" class="img-fluid rounded-circle" alt="">
+                  </div>
+                  <div class="col-6">
+                    <p class="mb-0">Unity in Faith, Education for Life: BAIS, Nurturing Communities, Fostering Knowledge.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="row g-2">
+                <div class="col-md-6">
+                  <p class="mb-2"><i class="fa fa-check text-primary me-3"></i>Evening School for Children</p>
+                  <p class="mb-0"><i class="fa fa-check text-primary me-3"></i>Arabic Beginners for Adults</p>
+                  <p class="mb-0"><i class="fa fa-check text-primary me-3"></i>Marriage Services</p>
+                </div>
+                <div class="col-md-6">
+                  <p class="mb-2"><i class="fa fa-check text-primary me-3"></i>Islamic Counselling</p>
+                  <p class="mb-0"><i class="fa fa-check text-primary me-3"></i>Seniors Program</p>
+                  <p class="mb-0"><i class="fa fa-check text-primary me-3"></i>Da’wa program</p>
+                </div>
+              </div>
+<!--              <div v-if="pages">-->
+<!--                <p v-html="pages.body"></p>-->
+<!--              </div>-->
             </div>
           </div>
         </div>
@@ -116,7 +162,7 @@
       </div>
       <!-- Contact Start -->
 
-      <!-- Blog Start -->
+      <!-- Visit Facebook Start -->
       <div class="container-fluid contact py-5">
         <div class="container py-5">
           <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s">
@@ -225,66 +271,66 @@
 
 
       <!-- Testiminial Start -->
-      <div class="container-fluid testimonial py-5">
-        <div class="container py-5">
-          <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
-            <p class="fs-5 text-uppercase text-primary">Testimonial</p>
-            <h1 class="display-3">What People Say About Islam</h1>
-          </div>
-          <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay="0.2s">
-            <div class="testimonial-item" v-for="(testimonial, i) in testimonials" :key="testimonial.id" v-if="testimonials.length">
-              <div class="d-flex mb-3">
-                <div class="position-relative">
-                  <img :src="testimonialImage(testimonial.image)" class="img-fluid" alt="">
-                  <div class="btn-md-square bg-primary rounded-circle position-absolute" style="top: 25px; left: -25px;">
-                    <i class="fa fa-quote-left text-dark"></i>
-                  </div>
-                </div>
-                <div class="ps-3 my-auto ">
-                  <h5 class="mb-0">{{ testimonial.name }}</h5>
-                  <p class="m-0">Profession</p>
-                </div>
-              </div>
-              <div class="testimonial-content">
-                <div class="d-flex">
-                  <i class="fas fa-star text-primary"></i>
-                  <i class="fas fa-star text-primary"></i>
-                  <i class="fas fa-star text-primary"></i>
-                  <i class="fas fa-star text-primary"></i>
-                  <i class="fas fa-star text-primary"></i>
-                </div>
-                <p class="fs-5 m-0 pt-3" v-html="testimonial.complement"></p>
-              </div>
-            </div>
-<!--            <div v-for="(testimonial, i) in testimonials" :key="testimonial.id" v-if="testimonials.length">-->
-<!--              <div class="testimonial-item">-->
-<!--                <div class="d-flex mb-3">-->
-<!--                  <div class="position-relative">-->
-<!--                    <img :src="testimonialImage(testimonial.image)" class="img-fluid" alt="">-->
-<!--                    <div class="btn-md-square bg-primary rounded-circle position-absolute" style="top: 25px; left: -25px;">-->
-<!--                      <i class="fa fa-quote-left text-dark"></i>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                  <div class="ps-3 my-auto ">-->
-<!--                    <h5 class="mb-0">{{ testimonial.name }}</h5>-->
-<!--                    <p class="m-0">Profession</p>-->
+<!--      <div class="container-fluid testimonial py-5">-->
+<!--        <div class="container py-5">-->
+<!--          <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">-->
+<!--            <p class="fs-5 text-uppercase text-primary">Testimonial</p>-->
+<!--            <h1 class="display-3">What People Say About Islam</h1>-->
+<!--          </div>-->
+<!--          <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay="0.2s">-->
+<!--            <div class="testimonial-item" v-for="(testimonial, i) in testimonials" :key="testimonial.id" v-if="testimonials.length">-->
+<!--              <div class="d-flex mb-3">-->
+<!--                <div class="position-relative">-->
+<!--                  <img :src="testimonialImage(testimonial.image)" class="img-fluid" alt="">-->
+<!--                  <div class="btn-md-square bg-primary rounded-circle position-absolute" style="top: 25px; left: -25px;">-->
+<!--                    <i class="fa fa-quote-left text-dark"></i>-->
 <!--                  </div>-->
 <!--                </div>-->
-<!--                <div class="testimonial-content">-->
-<!--                  <div class="d-flex">-->
-<!--                    <i class="fas fa-star text-primary"></i>-->
-<!--                    <i class="fas fa-star text-primary"></i>-->
-<!--                    <i class="fas fa-star text-primary"></i>-->
-<!--                    <i class="fas fa-star text-primary"></i>-->
-<!--                    <i class="fas fa-star text-primary"></i>-->
-<!--                  </div>-->
-<!--                  <p class="fs-5 m-0 pt-3">Lorem ipsum dolor sit amet elit, sed do tempor ut labore et dolore magna aliqua. Ut enim ad minim quis.</p>-->
+<!--                <div class="ps-3 my-auto ">-->
+<!--                  <h5 class="mb-0">{{ testimonial.name }}</h5>-->
+<!--                  <p class="m-0">Profession</p>-->
 <!--                </div>-->
 <!--              </div>-->
+<!--              <div class="testimonial-content">-->
+<!--                <div class="d-flex">-->
+<!--                  <i class="fas fa-star text-primary"></i>-->
+<!--                  <i class="fas fa-star text-primary"></i>-->
+<!--                  <i class="fas fa-star text-primary"></i>-->
+<!--                  <i class="fas fa-star text-primary"></i>-->
+<!--                  <i class="fas fa-star text-primary"></i>-->
+<!--                </div>-->
+<!--                <p class="fs-5 m-0 pt-3" v-html="testimonial.complement"></p>-->
+<!--              </div>-->
 <!--            </div>-->
-          </div>
-        </div>
-      </div>
+<!--&lt;!&ndash;            <div v-for="(testimonial, i) in testimonials" :key="testimonial.id" v-if="testimonials.length">&ndash;&gt;-->
+<!--&lt;!&ndash;              <div class="testimonial-item">&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="d-flex mb-3">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <div class="position-relative">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <img :src="testimonialImage(testimonial.image)" class="img-fluid" alt="">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="btn-md-square bg-primary rounded-circle position-absolute" style="top: 25px; left: -25px;">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <i class="fa fa-quote-left text-dark"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <div class="ps-3 my-auto ">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <h5 class="mb-0">{{ testimonial.name }}</h5>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <p class="m-0">Profession</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="testimonial-content">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <div class="d-flex">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <i class="fas fa-star text-primary"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <i class="fas fa-star text-primary"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <i class="fas fa-star text-primary"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <i class="fas fa-star text-primary"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <i class="fas fa-star text-primary"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <p class="fs-5 m-0 pt-3">Lorem ipsum dolor sit amet elit, sed do tempor ut labore et dolore magna aliqua. Ut enim ad minim quis.</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;              </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
       <!-- Testiminial End -->
     </div>
 </template>

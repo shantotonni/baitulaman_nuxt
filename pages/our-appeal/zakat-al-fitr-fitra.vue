@@ -25,7 +25,7 @@
           <h1 class="display-3">Zakat Al-Fitr (Fitra)</h1>
         </div>
         <div class="row g-4 wow fadeIn" data-wow-delay="0.3s">
-          <div class="col-sm-8 offset-2" style="text-align: left">
+          <div class="col-sm-12" style="text-align: center">
             <img src="/assets/img/Fitra_calculation-2024.jpeg" alt="">
             <p style="text-align: center">Calculation method as per www.fatwa.ca</p>
             <br>
