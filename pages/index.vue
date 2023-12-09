@@ -6,8 +6,8 @@
           <div class="row">
             <div class="col-lg-8">
               <div class="hero-header-inner animated zoomIn">
-                <p class="fs-4 text-dark" >WELCOME TO THEMosque</p>
-                <h1 class="mb-5 text-dark">Purity Comes From Faith</h1>
+                <p class="fs-4 text-dark" >{{ slider.title }}</p>
+                <h1 class="mb-5 text-dark" v-html="slider.title"></h1>
                 <nuxt-link to="/add-registration-for-maktab" class="btn btn-success py-3 px-5">Add registration for Maktab</nuxt-link>
                 <nuxt-link to="/apply-for-membership" class="btn btn-success py-3 px-5">Apply For Membership</nuxt-link>
                 <nuxt-link to="/mailing-list" class="btn btn-success py-3 px-5">Mail Us</nuxt-link>
@@ -352,6 +352,7 @@ export default {
       imam: {},
       program_schedule: [],
       events: [],
+      slider: {},
       testimonials: [],
       pages: {},
       announcement: {},
@@ -372,6 +373,7 @@ export default {
     this.getOurEvents();
     this.getPages();
     this.getAnnouncement();
+    this.getSlider();
     //this.map();
     // this.getTestimonial();
     },
@@ -467,6 +469,13 @@ export default {
     getPages(){
       this.$axios.get( base_url + 'api/get-pages?slug=' + this.slug).then((response)=>{
         this.pages = response.data.pages;
+      }).catch((error)=>{
+      })
+    },
+    getSlider(){
+      this.$axios.get( base_url + 'api/get-home-page-slider').then((response)=>{
+        console.log(response)
+        this.slider = response.data.slider;
       }).catch((error)=>{
       })
     },

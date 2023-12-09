@@ -50,13 +50,12 @@
               <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Donation</a>
                 <div class="dropdown-menu m-0 rounded-0">
-                  <nuxt-link to="/our-appeal" class="dropdown-item">Our Appeal</nuxt-link>
-                  <nuxt-link to="/our-appeal/one-time-donation" class="dropdown-item">One time</nuxt-link>
-                  <nuxt-link to="/our-appeal/monthly-donation" class="dropdown-item">Monthly</nuxt-link>
+                  <nuxt-link :to="`/our-appeal${menu.url}`" class="dropdown-item" v-for="(menu , index) in menus" :key="index">{{ menu.name }}</nuxt-link>
+<!--                  <nuxt-link to="/our-appeal/one-time-donation" class="dropdown-item">One time</nuxt-link>-->
+<!--                  <nuxt-link to="/our-appeal/monthly-donation" class="dropdown-item">Monthly</nuxt-link>-->
 <!--                  <nuxt-link to="/our-appeal/sponsor-an-ifter" class="dropdown-item">Sponsor an Iftar</nuxt-link>-->
 <!--                  <nuxt-link to="/our-appeal/zakat-al-fitr-fitra" class="dropdown-item">Zakat Al-Fitr (Fitra)</nuxt-link>-->
-                  <nuxt-link to="/our-appeal/zakat-al-mal" class="dropdown-item">Zakat Al-Mal</nuxt-link>
-<!--                  <nuxt-link to="/our-appeal/gofundme-com" class="dropdown-item">GoFundMe.com</nuxt-link>-->
+<!--                  <nuxt-link to="/our-appeal/zakat-al-mal" class="dropdown-item">Zakat Al-Mal</nuxt-link>-->
                 </div>
               </div>
               <div class="nav-item dropdown">
@@ -123,14 +122,25 @@
 </template>
 
 <script>
+import {base_url} from "~/plugins/base_url";
+
 export default {
   name: "Header",
   data(){
     return {
-      //
+      menus: []
     }
   },
+  mounted() {
+    this.getDonationMenu();
+  },
   methods: {
+    getDonationMenu(){
+      this.$axios.get( base_url + 'api/get-donation-menu').then((response)=>{
+        this.menus = response.data.menus;
+      }).catch((error)=>{
+      })
+    },
     logout(){
       this.$auth.logout();
       this.$router.push('/login');

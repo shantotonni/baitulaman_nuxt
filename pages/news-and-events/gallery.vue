@@ -26,7 +26,8 @@
           <div class="col-lg-6 col-xl-4" v-for="(gallery, i) in galleries" :key="gallery.id" v-if="galleries.length">
             <div class="blog-item wow fadeIn" data-wow-delay="0.1s">
               <div class="blog-img position-relative overflow-hidden">
-                <img :src="image(gallery.image)" style="max-height: 330px;min-height: 330px" class="img-fluid w-100" alt="">
+                <img :src="image(gallery.image)" style="max-height: 330px;min-height: 330px" class="img-fluid w-100" alt="" v-if="gallery.video_status==='N'">
+                <iframe width="420" height="315" :src="gallery.link" v-else></iframe>
               </div>
               <div class="p-4">
                 <a href="" class="d-inline-block h4 lh-sm mb-3">{{ gallery.title }}</a>
