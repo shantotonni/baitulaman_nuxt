@@ -6,8 +6,10 @@
           <div class="row">
             <div class="col-lg-8">
               <div class="hero-header-inner animated zoomIn">
-                <p class="fs-4 text-dark" >{{ slider.title }}</p>
-                <h1 class="mb-5 text-dark" v-html="slider.title"></h1>
+<!--                <p class="fs-4 text-dark" >WELCOME TO THEMosque</p>-->
+<!--                <h1 class="mb-5 text-dark">Purity Comes From Faith</h1>-->
+                <p class="fs-4 text-dark" v-if="slider.title">{{ slider.title }}</p>
+                <h1 class="mb-5 text-dark" v-if="slider.paragraph" v-html="slider.paragraph"></h1>
                 <nuxt-link to="/add-registration-for-maktab" class="btn btn-success py-3 px-5">Add registration for Maktab</nuxt-link>
                 <nuxt-link to="/apply-for-membership" class="btn btn-success py-3 px-5">Apply For Membership</nuxt-link>
                 <nuxt-link to="/mailing-list" class="btn btn-success py-3 px-5">Mail Us</nuxt-link>
@@ -405,7 +407,6 @@ export default {
     getProgramSchedule(){
       this.$axios.get( base_url + 'api/get-program-schedule').then((response)=>{
         this.program_schedule = response.data.program_schedule;
-        //console.log(response);
       }).catch((error)=>{
       })
     },
@@ -473,7 +474,7 @@ export default {
       })
     },
     getSlider(){
-      this.$axios.get( base_url + 'api/get-home-page-slider').then((response)=>{
+      this.$axios.get( base_url + 'api/get-static-slider?slug=' + 'announcement').then((response)=>{
         console.log(response)
         this.slider = response.data.slider;
       }).catch((error)=>{
@@ -487,7 +488,6 @@ export default {
         }else {
           this.announcementEnable = true
         }
-        console.log(response.data.pages.status)
       }).catch((error)=>{
       })
     },

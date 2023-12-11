@@ -51,6 +51,7 @@
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Donation</a>
                 <div class="dropdown-menu m-0 rounded-0">
                   <nuxt-link :to="`/our-appeal${menu.url}`" class="dropdown-item" v-for="(menu , index) in menus" :key="index">{{ menu.name }}</nuxt-link>
+<!--                  <nuxt-link to="/our-appeal" class="dropdown-item">Our Appeal</nuxt-link>-->
 <!--                  <nuxt-link to="/our-appeal/one-time-donation" class="dropdown-item">One time</nuxt-link>-->
 <!--                  <nuxt-link to="/our-appeal/monthly-donation" class="dropdown-item">Monthly</nuxt-link>-->
 <!--                  <nuxt-link to="/our-appeal/sponsor-an-ifter" class="dropdown-item">Sponsor an Iftar</nuxt-link>-->
