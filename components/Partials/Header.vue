@@ -14,7 +14,7 @@
             <div class="col-lg-7 text-start">
               <div class="h-100 d-inline-flex align-items-center me-4">
                 <span class="fa fa-phone-alt me-2 text-dark"></span>
-                <a href="#" class="text-secondary"><span>+000 0000 000</span></a>
+                <a href="http://wa.me/+8801553717992" class="text-secondary"><span>+000 0000 000</span></a>
               </div>
               <div class="h-100 d-inline-flex align-items-center">
                 <span class="far fa-envelope me-2 text-dark"></span>

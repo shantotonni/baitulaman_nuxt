@@ -46,6 +46,20 @@
                   <textarea class="w-100 form-control bg-transparent p-3" rows="6" cols="10" :class="{ 'is-invalid': form.errors.has('message') }" placeholder="Your Message" v-model="form.message"></textarea>
                   <div class="error" v-if="form.errors.has('message')" v-html="form.errors.get('message')" />
                 </div>
+                <div class="col-12">
+                  <div class="captcha" style="background: #e7deef;width: 200px;text-align: center">
+                    <template v-for="(char, index) in captchaChars">
+                    <span class="captcha-char" :key="index" :style="{ fontSize: char.fontSize + 'px', transform: 'rotate(' + char.rotation + 'deg)' }">
+                        {{ char.char }}
+                    </span>
+                    </template>
+                  </div>
+                  <button class="btn" type="button" @click="generateCaptcha" style="background: #28262a;width: 200px;text-align: center;color: white">Refresh</button>
+                </div>
+                <div class="col-4">
+                  <input type="text" class="form-control bg-transparent p-3" :class="{ 'is-invalid': form.errors.has('capture') }" placeholder="Enter Captcha" v-model="form.capture">
+                  <div class="error" v-if="form.errors.has('capture')" v-html="form.errors.get('capture')" />
+                </div>
                 <div class="col-12 text-center">
                   <button class="btn btn-primary border-0 py-3 px-5" type="submit">Send Message</button>
                 </div>
@@ -53,10 +67,8 @@
             </form>
           </div>
         </div>
-
       </div>
     </div>
-    <!-- Contact Start -->
   </div>
 </template>
 
@@ -78,24 +90,47 @@ export default {
         email:'',
         subject:'',
         message:'',
+        capture:'',
       }),
+      captchaCharsCheck: '',
+      captchaChars: [],
+      characters: '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
     };
   },
   mounted() {
     document.title = 'Ask The Imam | Baitul Aman';
+    this.generateCaptcha();
   },
   methods: {
     store(){
-      this.form.post( base_url + 'api/question').then((response)=>{
-        if (response.data.status === 'success'){
-          this.form.name ='',
-            this.form.email ='',
-            this.form.subject ='',
-            this.form.message = '',
-            this.$toaster.success("Successfully Inserted")
-        }
-      }).catch((error)=>{
-        //
+      if (this.captchaCharsCheck === this.form.capture){
+        this.form.post( base_url + 'api/question').then((response)=>{
+          if (response.data.status === 'success'){
+            this.form.name ='',
+              this.form.email ='',
+              this.form.subject ='',
+              this.form.message = '',
+              this.$toaster.success("Successfully Inserted")
+          }
+        }).catch((error)=>{
+          //
+        })
+      }else {
+        this.$toaster.error("Captcha Not Match")
+      }
+    },
+    generateCaptcha() {
+      const chars = this.characters.split('');
+      let captchaChars = [];
+      for (let i = 0; i < 6; i++) {
+        let char = chars[Math.floor(Math.random() * chars.length)];
+        let fontSize = Math.floor(Math.random() * 10) + 20; // random font size between 20 and 30
+        let rotation = Math.floor(Math.random() * 21) - 10; // random rotation between -10 and 10 degrees
+        captchaChars.push({ char, fontSize, rotation });
+      }
+      this.captchaChars = captchaChars;
+      captchaChars.forEach((getRecord, index) => {
+        this.captchaCharsCheck += getRecord.char;
       })
     },
   },

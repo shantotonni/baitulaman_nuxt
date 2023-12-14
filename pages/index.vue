@@ -9,7 +9,7 @@
 <!--                <p class="fs-4 text-dark" >WELCOME TO THEMosque</p>-->
 <!--                <h1 class="mb-5 text-dark">Purity Comes From Faith</h1>-->
                 <p class="fs-4 text-dark" v-if="slider.title">{{ slider.title }}</p>
-                <h1 class="mb-5 text-dark" v-if="slider.paragraph" v-html="slider.paragraph"></h1>
+                <h1 class="text-dark" v-if="slider.paragraph" v-html="slider.paragraph"></h1>
                 <nuxt-link to="/add-registration-for-maktab" class="btn btn-success py-3 px-5">Add registration for Maktab</nuxt-link>
                 <nuxt-link to="/apply-for-membership" class="btn btn-success py-3 px-5">Apply For Membership</nuxt-link>
                 <nuxt-link to="/mailing-list" class="btn btn-success py-3 px-5">Mail Us</nuxt-link>
@@ -20,8 +20,8 @@
       </div>
       <!-- Hero End -->
       <div class="container-fluid about" v-if="announcementEnable">
-        <div class="container py-5" style="padding-bottom: 0px!important;">
-          <div class="container text-center py-5 wow fadeIn mb-5 demo" data-wow-delay="0.5s" style="padding-bottom: 0px!important;">
+        <div class="container py-3" style="padding-bottom: 0px!important;">
+          <div class="container text-center py-3 wow fadeIn mb-5 demo" data-wow-delay="0.5s" style="padding-bottom: 0px!important;">
             <div class="row g-4 align-items-center">
               <div class="col-lg-2">
                 <i class="fa fa-mosque fa-5x text-white"></i>
@@ -40,7 +40,7 @@
         </div>
       </div>
       <div class="container-fluid about">
-        <div class="container py-5">
+        <div class="container py-3">
           <div class="row g-5">
             <div>
               <iframe id="iframe" title="prayerWidget" class="widget-m-top" style="height: 890px;width: 100%; border: 1px solid #ddd;" scrolling="no" src="https://time.my-masjid.com/timingscreen/d4c89c73-355e-4da5-95a2-f399bc4831b3"></iframe>
@@ -50,8 +50,8 @@
       </div>
 
       <!-- About Satrt -->
-      <div class="container-fluid about py-5">
-        <div class="container py-5">
+      <div class="container-fluid about py-3" style="background: #f3f2f2">
+        <div class="container py-3">
           <div class="row g-5">
 <!--            <div class="col-xl-6">-->
 <!--              <img src="/assets/img/about.jpg" style="height: 100%" class="img-fluid pb-3 wow zoomIn" data-wow-delay="0.1s" alt="">-->
@@ -115,8 +115,8 @@
       <!-- About End -->
 
       <!-- Program shesdule Start -->
-      <div class="container-fluid contact py-5">
-        <div class="container py-5">
+      <div class="container-fluid contact py-3">
+        <div class="container py-3">
           <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s">
             <h1 class="display-3" style="">Program Schedule</h1>
           </div>
@@ -151,7 +151,7 @@
             </div>
             <div class="col-sm-4" style="text-align: left">
               <div class="container-fluid about">
-                <div class="container py-5">
+                <div class="container py-3">
                   <div class="row g-5">
                     <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FbaisYEG&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=2520005324807291" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                   </div>
@@ -165,8 +165,8 @@
       <!-- Contact Start -->
 
       <!-- Visit Facebook Start -->
-      <div class="container-fluid contact py-5">
-        <div class="container py-5">
+      <div class="container-fluid contact py-3" style="background: #f3f2f2">
+        <div class="container py-3">
           <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s">
             <h1 class="display-3" style="">Visit Facebook</h1>
           </div>
@@ -201,8 +201,8 @@
       <!-- Blog End -->
 
       <!-- Events Start -->
-      <div class="container-fluid event py-5">
-        <div class="container py-5">
+      <div class="container-fluid event py-3">
+        <div class="container py-3">
           <h1 class="display-3 wow fadeIn" data-wow-delay="0.1s">Upcoming <span class="text-primary">Events</span></h1>
           <div class="row g-4 event-item wow fadeIn" data-wow-delay="0.1s" v-for="(event, i) in events" :key="event.id" v-if="events.length">
             <div class="col-3 col-lg-2 pe-0">
@@ -230,8 +230,8 @@
       <!-- Events End -->
 
       <!-- Team Start -->
-      <div class="container-fluid team py-5">
-        <div class="container py-5">
+      <div class="container-fluid team py-3" style="background: #f3f2f2">
+        <div class="container py-3">
           <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s">
             <h1 class="display-3">Our Imam</h1>
             <p class="fs-5 text-uppercase text-primary">Our current Imam is {{ imam.name }}. Here is his short intro:</p>

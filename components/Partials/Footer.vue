@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Footer Start -->
-    <div class="container-fluid footer pt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container-fluid footer pt-5 wow fadeIn" data-wow-delay="0.1s" style="margin-top: 0">
       <div class="container py-5">
         <div class="row g-4 footer-inner">
           <div class="col-md-6 col-lg-6 col-xl-4">

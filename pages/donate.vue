@@ -34,50 +34,62 @@
                   <li v-for="(error, i) in displayError" :key="error" v-if="displayError.length" style="text-align: left;color: red;list-style: none">{{ error }}</li>
                 </ul>
                 <div class="row g-4 wow fadeIn paymentClass" data-wow-delay="0.3s">
-                  <div class="col-sm-6">
+                  <div class="col-sm-4">
                     <input type="text" class="form-control bg-transparent p-3" :class="{ 'is-invalid': form.errors.has('name') }" placeholder="Your Name" name="name" v-model="form.name">
                     <div class="error" v-if="form.errors.has('name')" v-html="form.errors.get('name')" />
                   </div>
-                  <div class="col-sm-6">
+                  <div class="col-sm-4">
                     <input type="text" class="form-control bg-transparent p-3" :class="{ 'is-invalid': form.errors.has('mobile') }" placeholder="Your Mobile" v-model="form.mobile">
                     <div class="error" v-if="form.errors.has('mobile')" v-html="form.errors.get('mobile')" />
                   </div>
-                  <div class="col-sm-12">
+                  <div class="col-sm-4">
                     <input type="email" class="form-control bg-transparent p-3" :class="{ 'is-invalid': form.errors.has('email') }" placeholder="Your Email" v-model="form.email">
                     <div class="error" v-if="form.errors.has('email')" v-html="form.errors.get('email')" />
+                  </div>
+                  <div class="col-sm-12">
+                    <input type="text" class="form-control bg-transparent p-3" :class="{ 'is-invalid': form.errors.has('donation_for') }" placeholder="Donation For" v-model="form.donation_for">
+                    <div class="error" v-if="form.errors.has('donation_for')" v-html="form.errors.get('donation_for')" />
                   </div>
                   <hr>
                   <p style="font-size: 20px;background: #c4e8f5;color: #707070">Card Information</p>
 
-                  <div class="form-row top-row">
-                    <div id="card-number" class="field card-number"></div>
-                    <span class="input-errors" id="card-number-errors" role="alert" style="color: red"></span>
-<!--                    <div class="input-errors" id="card-number-errors" role="alert" style="color: red"></div>-->
-                  </div>
-
-                  <div class="form-row" style="height: 40px">
-                    <div id="card-date" class="field third-width card-number"></div>
-                    <span class="input-errors" id="card-date-errors" role="alert" style="color: red"></span>
-<!--                    <div class="input-errors" id="card-date-errors" role="alert"></div>-->
-                  </div>
-
-                  <div class="form-row" style="height: 40px">
-                    <div id="card-cvv" class="field third-width card-number"></div>
-                    <span class="input-errors" id="card-cvv-errors" role="alert" style="color: red"></span>
-<!--                    <div class="input-errors" id="card-cvv-errors" role="alert"></div>-->
-                  </div>
-
-                  <div class="form-row" style="height: 40px">
-                    <div id="card-postal-code" class="field third-width card-number"></div>
-                    <div class="input-errors" id="card-postal-code-errors" role="alert"></div>
-                  </div>
-                  <hr>
-                  <div class="form-row top-row">
-                    <div id="amount" class="field card-number" style="height: 45px">
-                      <input name="amount" placeholder="Enter Amount" class="form-control" v-model="form.amount" :class="{ 'is-invalid': form.errors.has('amount') }">
-                      <div class="error" v-if="form.errors.has('amount')" v-html="form.errors.get('amount')" />
-                    </div>
-                  </div>
+                 <div class="row">
+                   <div class="col-sm-6">
+                     <div class="form-row top-row">
+                       <div id="card-number" class="field card-number"></div>
+                       <span class="input-errors" id="card-number-errors" role="alert" style="color: red"></span>
+                       <!--                    <div class="input-errors" id="card-number-errors" role="alert" style="color: red"></div>-->
+                     </div>
+                   </div>
+                   <div class="col-sm-6">
+                     <div class="form-row" style="height: 10px;">
+                       <div id="card-date" class="field third-width card-number"></div>
+                       <span class="input-errors" id="card-date-errors" role="alert" style="color: red"></span>
+                       <!--                    <div class="input-errors" id="card-date-errors" role="alert"></div>-->
+                     </div>
+                   </div>
+                   <div class="col-sm-6">
+                     <div class="form-row" style="height: 40px;padding-top: 10px">
+                       <div id="card-cvv" class="field third-width card-number"></div>
+                       <span class="input-errors" id="card-cvv-errors" role="alert" style="color: red"></span>
+                       <!--                    <div class="input-errors" id="card-cvv-errors" role="alert"></div>-->
+                     </div>
+                   </div>
+                   <div class="col-sm-6">
+                     <div class="form-row" style="height: 40px;padding-top: 10px">
+                       <div id="card-postal-code" class="field third-width card-number"></div>
+                       <div class="input-errors" id="card-postal-code-errors" role="alert"></div>
+                     </div>
+                   </div>
+                   <div class="col-sm-6">
+                     <div class="form-row top-row">
+                       <div id="amount" class="field card-number" style="height: 45px;padding-top: 50px">
+                         <input name="amount" placeholder="Enter Amount" class="form-control" v-model="form.amount" :class="{ 'is-invalid': form.errors.has('amount') }">
+                         <div class="error" v-if="form.errors.has('amount')" v-html="form.errors.get('amount')" />
+                       </div>
+                     </div>
+                   </div>
+                 </div>
 
                   <div id="card-response" role="alert"></div>
 
@@ -116,6 +128,7 @@ export default {
         email:'',
         mobile:'',
         amount:'',
+        donation_for:'',
         token: ''
       }),
       loading: false,
