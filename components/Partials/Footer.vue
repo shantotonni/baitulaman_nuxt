@@ -42,17 +42,17 @@
           </div>
         </div>
       </div>
-      <div class="container py-4">
-        <div class="border-top border-secondary pb-4"></div>
-        <div class="row">
-          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-            &copy; <nuxt-link class="border-bottom" to="/">Baitul Aman</nuxt-link>, All Right Reserved.
-          </div>
-          <div class="col-md-6 text-center text-md-end">
-            Designed By <a class="border-bottom" href="https://www.linkedin.com/in/shojib-islam-057189137/">Sentu</a>
-          </div>
-        </div>
-      </div>
+<!--      <div class="container py-4">-->
+<!--        <div class="border-top border-secondary pb-4"></div>-->
+<!--        <div class="row">-->
+<!--          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">-->
+<!--            &copy; <nuxt-link class="border-bottom" to="/">Baitul Aman</nuxt-link>, All Right Reserved.-->
+<!--          </div>-->
+<!--          <div class="col-md-6 text-center text-md-end">-->
+<!--            Designed By <a class="border-bottom" href="https://www.linkedin.com/in/shojib-islam-057189137/">Sentu</a>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
     </div>
     <!-- Footer End -->
 

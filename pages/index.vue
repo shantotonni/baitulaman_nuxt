@@ -261,15 +261,15 @@
       </div>
       <!-- Team End -->
 
-<!--      <div class="container-fluid about py-5">-->
-<!--        <div class="container py-5">-->
-<!--          <div class="row g-5">-->
-<!--            <div>-->
-<!--              <div id="map"></div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
+      <div class="container-fluid about py-5">
+        <div class="container py-5">
+          <div class="row g-5">
+            <div>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2377.1323130630803!2d-113.4741695230085!3d53.430342468435036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53a01f649e5315a3%3A0xc477a96f3097b3c7!2sBaitul%20Aman%20Islamic%20Society!5e0!3m2!1sen!2sbd!4v1702797299739!5m2!1sen!2sbd" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
       <!-- Testiminial Start -->

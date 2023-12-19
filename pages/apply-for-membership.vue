@@ -30,17 +30,33 @@
               <input type="text" class="form-control bg-transparent p-3" :class="{ 'is-invalid': form.errors.has('name') }" placeholder="Full Name" name="name" v-model="form.name">
               <div class="error" v-if="form.errors.has('name')" v-html="form.errors.get('name')" />
             </div>
+            <div class="col-sm-3">
+              <input type="number" class="form-control bg-transparent p-3" :class="{ 'is-invalid': form.errors.has('age') }" placeholder="Your Age" v-model="form.age">
+              <div class="error" v-if="form.errors.has('age')" v-html="form.errors.get('age')" />
+            </div>
+            <div class="col-sm-3">
+              <select name="gender" id="gender" v-model="form.gender" class="form-control bg-transparent p-3" :class="{ 'is-invalid': form.errors.has('gender') }">
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+              <div class="error" v-if="form.errors.has('gender')" v-html="form.errors.get('gender')" />
+            </div>
+            <div class="col-sm-3">
+              <input type="date" class="form-control bg-transparent p-3" :class="{ 'is-invalid': form.errors.has('date_of_birth') }" placeholder="Your Date of Birth" v-model="form.date_of_birth">
+              <div class="error" v-if="form.errors.has('date_of_birth')" v-html="form.errors.get('date_of_birth')" />
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control bg-transparent p-3" :class="{ 'is-invalid': form.errors.has('address') }" placeholder="Your Address" v-model="form.address">
+              <div class="error" v-if="form.errors.has('address')" v-html="form.errors.get('address')" />
+            </div>
             <div class="col-sm-6">
               <input type="text" class="form-control bg-transparent p-3" :class="{ 'is-invalid': form.errors.has('phone') }" placeholder="Your Phone Number" v-model="form.phone">
               <div class="error" v-if="form.errors.has('phone')" v-html="form.errors.get('phone')" />
             </div>
             <div class="col-sm-6">
-              <input type="email" class="form-control bg-transparent p-3" :class="{ 'is-invalid': form.errors.has('email') }" placeholder="Your Email Address" v-model="form.email">
+              <input type="email" class="form-control bg-transparent p-3" :class="{ 'is-invalid': form.errors.has('email') }" placeholder="Your Email" v-model="form.email">
               <div class="error" v-if="form.errors.has('email')" v-html="form.errors.get('email')" />
-            </div>
-            <div class="col-sm-6">
-              <input type="number" class="form-control bg-transparent p-3" :class="{ 'is-invalid': form.errors.has('age') }" placeholder="Your Age" v-model="form.age">
-              <div class="error" v-if="form.errors.has('age')" v-html="form.errors.get('age')" />
             </div>
             <div class="col-sm-6">
               <input type="text" class="form-control bg-transparent p-3" :class="{ 'is-invalid': form.errors.has('father_name') }" placeholder="Your Father’s Name" v-model="form.father_name">
@@ -80,6 +96,9 @@ export default {
         phone:'',
         email:'',
         age:'',
+        gender:'',
+        address:'',
+        date_of_birth:'',
         father_name:'',
         father_email:'',
       }),

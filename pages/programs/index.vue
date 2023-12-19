@@ -38,7 +38,7 @@
                   </div>
                 </div>
                 <a href="" class="d-inline-block h4 lh-sm mb-3">{{ program.title }}</a>
-                <p class="mb-4" v-html="textTruncate(program.description)"></p>
+                <p class="mb-4" style="text-align: justify" v-html="textTruncate(program.description)"></p>
                 <nuxt-link :to="`/programs/program-details/${program.id}`" class="btn btn-primary px-3">More Details</nuxt-link>
               </div>
             </div>
@@ -81,7 +81,7 @@ export default {
       return base_url + "images/program/"+ image;
     },
     textTruncate(text){
-      return text.substring(0,100)+ '.....';
+      return text.substring(100,0) + '.....';
     }
   },
 }

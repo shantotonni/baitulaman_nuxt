@@ -55,7 +55,9 @@ export default {
     {src: '~/plugins/editor', ssr: false},
     { src: '~/plugins/vue-html2pdf', mode: 'client' },
     { src: '~/plugins/print.js', ssr: false },
-    '~/plugins/base_url.js','~/plugins/toaster.js','~/plugins/filter.js',
+    '~/plugins/base_url.js',
+    '~/plugins/toaster.js',
+    '~/plugins/filter.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

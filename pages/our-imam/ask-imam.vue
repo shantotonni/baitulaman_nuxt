@@ -30,13 +30,17 @@
             </div>
             <form @submit.prevent="store()" @keydown="form.onKeydown($event)">
               <div class="row g-4 wow fadeIn" data-wow-delay="0.3s">
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                   <input type="text" class="form-control bg-transparent p-3" :class="{ 'is-invalid': form.errors.has('name') }" placeholder="Your Name" name="name" v-model="form.name">
                   <div class="error" v-if="form.errors.has('name')" v-html="form.errors.get('name')" />
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                   <input type="email" class="form-control bg-transparent p-3" :class="{ 'is-invalid': form.errors.has('email') }" placeholder="Your Email" v-model="form.email">
                   <div class="error" v-if="form.errors.has('email')" v-html="form.errors.get('email')" />
+                </div>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control bg-transparent p-3" :class="{ 'is-invalid': form.errors.has('mobile') }" placeholder="Your Mobile" v-model="form.mobile">
+                  <div class="error" v-if="form.errors.has('mobile')" v-html="form.errors.get('mobile')" />
                 </div>
                 <div class="col-12">
                   <input type="text" class="form-control bg-transparent p-3" :class="{ 'is-invalid': form.errors.has('subject') }" placeholder="Subject" v-model="form.subject">
@@ -88,6 +92,7 @@ export default {
       form: new Form({
         name:'',
         email:'',
+        mobile:'',
         subject:'',
         message:'',
         capture:'',

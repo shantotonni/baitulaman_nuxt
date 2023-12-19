@@ -24,25 +24,24 @@
     <div class="container py-5">
       <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s">
         <h1 class="display-3" style="">By Law</h1>
-
       </div>
       <div class="row g-4 wow fadeIn" data-wow-delay="0.3s">
         <div class="col-sm-12">
           <div v-if="pages">
-            <p v-html="pages.body"></p>
+            <div id="pdf-container">
+              <embed src="http://localhost:3000/assets/pdf/by_law.pdf" type="application/pdf" width="100%" height="100%">
+            </div>
           </div>
           <br>
         </div>
       </div>
     </div>
   </div>
-  <!-- Contact Start -->
 </div>
 </template>
 
 <script>
 import {base_url} from "~/plugins/base_url";
-
 export default {
   name: "about.vue",
   auth:false,
@@ -54,7 +53,7 @@ export default {
   data() {
     return {
       pages: {},
-      slug: 'by-law'
+      slug: 'by-law',
     };
   },
   mounted() {
@@ -73,5 +72,27 @@ export default {
 </script>
 
 <style scoped>
+.vue-pdf-embed > div {
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px 4px rgba(0, 0, 0, 0.1);
+}
+#pdf-container {
+  /*width: 300px;*/
+  height: 1000px;
+  /*position: absolute;*/
+  /*top: 500px;*/
+  /*left: 500px;*/
+}
 
+#pdf-controls {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
 </style>

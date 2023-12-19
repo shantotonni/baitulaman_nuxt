@@ -83,7 +83,7 @@
                   <nuxt-link to="/contact-us" class="dropdown-item">Contact Us</nuxt-link>
                   <nuxt-link to="/mailing-list" class="dropdown-item">Mailing List</nuxt-link>
                   <nuxt-link to="/volunteer" class="dropdown-item">Volunteer</nuxt-link>
-                  <nuxt-link to="/add-registration-for-maktab" class="dropdown-item">Add registration for Maktab</nuxt-link>
+                  <nuxt-link to="/add-registration-for-maktab" class="dropdown-item">Maktab Registration</nuxt-link>
                   <nuxt-link to="/apply-for-membership" class="dropdown-item">Apply For Membership</nuxt-link>
                 </div>
               </div>
