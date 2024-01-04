@@ -47,78 +47,18 @@
           <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
             <div class="navbar-nav ms-lg-auto mx-xl-auto">
               <nuxt-link to="/" class="nav-item nav-link active">Home</nuxt-link>
-              <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Donation</a>
+              <div class="nav-item dropdown" v-for="(menu , index) in menus">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ menu.name }}</a>
                 <div class="dropdown-menu m-0 rounded-0">
-                  <nuxt-link :to="`/our-appeal${menu.url}`" class="dropdown-item" v-for="(menu , index) in menus" :key="index">{{ menu.name }}</nuxt-link>
-<!--                  <nuxt-link to="/our-appeal" class="dropdown-item">Our Appeal</nuxt-link>-->
-<!--                  <nuxt-link to="/our-appeal/one-time-donation" class="dropdown-item">One time</nuxt-link>-->
-<!--                  <nuxt-link to="/our-appeal/monthly-donation" class="dropdown-item">Monthly</nuxt-link>-->
-<!--                  <nuxt-link to="/our-appeal/sponsor-an-ifter" class="dropdown-item">Sponsor an Iftar</nuxt-link>-->
-<!--                  <nuxt-link to="/our-appeal/zakat-al-fitr-fitra" class="dropdown-item">Zakat Al-Fitr (Fitra)</nuxt-link>-->
-<!--                  <nuxt-link to="/our-appeal/zakat-al-mal" class="dropdown-item">Zakat Al-Mal</nuxt-link>-->
+                  <nuxt-link :to="`${sub.url}`" class="dropdown-item" v-for="(sub , index) in menu.sub_menu" :key="index">{{ sub.name }}</nuxt-link>
                 </div>
               </div>
-              <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">News & Events</a>
-                <div class="dropdown-menu m-0 rounded-0">
-                  <nuxt-link to="/news-and-events" class="dropdown-item">News & Events</nuxt-link>
-                  <nuxt-link to="/news-and-events/gallery" class="dropdown-item">Gallery</nuxt-link>
-<!--                  <nuxt-link to="/news-and-events/events" class="dropdown-item"></nuxt-link>-->
-                  <nuxt-link to="/news-and-events/visit-facebook" class="dropdown-item">Visit Facebook</nuxt-link>
-                </div>
-              </div>
-              <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Programs</a>
-                <div class="dropdown-menu m-0 rounded-0">
-                  <nuxt-link to="/programs" class="dropdown-item">Our Programs</nuxt-link>
-                  <nuxt-link to="/programs/program-schedule" class="dropdown-item">Program Schedule</nuxt-link>
-                  <nuxt-link to="/programs/youth-club" class="dropdown-item">Youth Club</nuxt-link>
-                  <nuxt-link to="/programs/maktab-curriculum" class="dropdown-item">Maktab Curriculum</nuxt-link>
-                </div>
-              </div>
-              <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Contact</a>
-                <div class="dropdown-menu m-0 rounded-0">
-                  <nuxt-link to="/contact-us" class="dropdown-item">Contact Us</nuxt-link>
-                  <nuxt-link to="/mailing-list" class="dropdown-item">Mailing List</nuxt-link>
-                  <nuxt-link to="/volunteer" class="dropdown-item">Volunteer</nuxt-link>
-                  <nuxt-link to="/add-registration-for-maktab" class="dropdown-item">Maktab Registration</nuxt-link>
-                  <nuxt-link to="/apply-for-membership" class="dropdown-item">Apply For Membership</nuxt-link>
-                </div>
-              </div>
-              <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Meet bais</a>
-                <div class="dropdown-menu m-0 rounded-0">
-                  <nuxt-link to="/about" class="dropdown-item">About</nuxt-link>
-                  <nuxt-link to="/about/by-law" class="dropdown-item">By Law</nuxt-link>
-                  <nuxt-link to="/about/objective" class="dropdown-item">Objective</nuxt-link>
-                  <nuxt-link to="/about/advisory-board" class="dropdown-item">Founding Members</nuxt-link>
-                  <nuxt-link to="/about/shura-committee" class="dropdown-item">Shura Committee</nuxt-link>
-                  <nuxt-link to="/about/sub-committee" class="dropdown-item">Sub Committee</nuxt-link>
-                  <nuxt-link to="/our-imam" class="dropdown-item">Our Imam</nuxt-link>
-                  <nuxt-link to="/our-imam/ask-imam" class="dropdown-item">Ask The Imam</nuxt-link>
-                  <nuxt-link to="/our-imam/ask-board" class="dropdown-item">Ask The Board</nuxt-link>
-                </div>
-              </div>
-              <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Prayer Timetable</a>
-                <div class="dropdown-menu m-0 rounded-0">
-                  <nuxt-link to="/todays-timetable" class="dropdown-item">Today`s Timetable</nuxt-link>
-<!--                  <nuxt-link to="/todays-timetable/monthly-timetable" class="dropdown-item">Monthly Timetable</nuxt-link>-->
-<!--                  <nuxt-link to="/todays-timetable/ramadan-calendar" class="dropdown-item">Ramadan Calendar</nuxt-link>-->
-                </div>
-              </div>
-
-<!--              <nuxt-link to="/about" class="nav-item nav-link">About</nuxt-link>-->
             </div>
             <nuxt-link to="/donate" class="btn btn-success py-2 px-4 d-none d-xl-inline-block">Donate</nuxt-link>
           </div>
         </nav>
       </div>
     </div>
-    <!-- Topbar End -->
-
   </div>
 </template>
 
@@ -133,11 +73,12 @@ export default {
     }
   },
   mounted() {
-    this.getDonationMenu();
+    this.getMenu();
   },
   methods: {
-    getDonationMenu(){
-      this.$axios.get( base_url + 'api/get-donation-menu').then((response)=>{
+    getMenu(){
+      this.$axios.get( base_url + 'api/get-frontend-menu').then((response)=>{
+        console.log(response)
         this.menus = response.data.menus;
       }).catch((error)=>{
       })

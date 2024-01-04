@@ -41,24 +41,48 @@
     <div class="container-fluid event py-5">
       <div class="container py-5">
         <h1 class="display-3 wow fadeIn" data-wow-delay="0.1s">Upcoming <span class="text-primary">Events</span></h1>
-        <div class="row g-4 event-item wow fadeIn" data-wow-delay="0.1s" v-for="(event, i) in events" :key="event.id" v-if="events.length">
+        <div class="row g-4 event-item wow fadeIn" data-wow-delay="0.1s" v-for="(current, i) in current_events" :key="current.id" v-if="current_events.length">
           <div class="col-3 col-lg-2 pe-0">
             <div class="text-center border-bottom border-dark py-3 px-2">
-              <h6>{{ event.event_date }}</h6>
-              <p class="mb-0">Fri 06:55</p>
+              <h6>{{ current.event_date }}</h6>
+              <p class="mb-0">{{ current.event_time }}</p>
             </div>
           </div>
           <div class="col-9 col-lg-6 border-start border-dark">
             <div class="ms-3">
-              <h4 class="mb-3">{{ event.title }}</h4>
-              <p class="mb-4" v-html="event.description"></p>
-              <a class="btn btn-primary px-3" @click="eventJoin(event.id)" v-if="$auth.loggedIn !== false">Join Now</a>
+              <h4 class="mb-3">{{ current.title }}</h4>
+              <p class="mb-4" v-html="current.description"></p>
+              <a class="btn btn-primary px-3" @click="eventJoin(current.id)" v-if="$auth.loggedIn !== false">Join Now</a>
               <nuxt-link to="/login" class="btn btn-primary px-3" v-else>Join Now</nuxt-link>
             </div>
           </div>
           <div class="col-12 col-lg-4">
             <div class="overflow-hidden mb-5">
-              <img :src="image(event.image)" class="img-fluid w-100" alt="">
+              <img :src="image(current.image)" class="img-fluid w-100" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container py-5">
+        <h1 class="display-3 wow fadeIn" data-wow-delay="0.1s">Previous <span class="text-primary">Events</span></h1>
+        <div class="row g-4 event-item wow fadeIn" data-wow-delay="0.1s" v-for="(previous, i) in previous_events" :key="previous.id" v-if="previous_events.length">
+          <div class="col-3 col-lg-2 pe-0">
+            <div class="text-center border-bottom border-dark py-3 px-2">
+              <h6>{{ previous.event_date }}</h6>
+              <p class="mb-0">{{ previous.event_time }}</p>
+            </div>
+          </div>
+          <div class="col-9 col-lg-6 border-start border-dark">
+            <div class="ms-3">
+              <h4 class="mb-3">{{ previous.title }}</h4>
+              <p class="mb-4" v-html="previous.description"></p>
+              <a class="btn btn-primary px-3" @click="eventJoin(previous.id)" v-if="$auth.loggedIn !== false">Join Now</a>
+<!--              <nuxt-link to="/login" class="btn btn-primary px-3" v-else>Join Now</nuxt-link>-->
+            </div>
+          </div>
+          <div class="col-12 col-lg-4">
+            <div class="overflow-hidden mb-5">
+              <img :src="image(previous.image)" class="img-fluid w-100" alt="">
             </div>
           </div>
         </div>
@@ -81,7 +105,8 @@ export default {
   },
   data() {
     return {
-      events: [],
+      current_events: [],
+      previous_events: [],
     };
   },
   mounted() {
@@ -91,13 +116,13 @@ export default {
   methods: {
     getOurEvents(){
       this.$axios.get( base_url + 'api/get-our-events').then((response)=>{
-        this.events = response.data.data;
+        this.current_events = response.data.current_events.data;
+        this.previous_events = response.data.previous_events.data;
       }).catch((error)=>{
       })
     },
     eventJoin(id){
       this.$axios.get( base_url + 'api/join-events?EventId=' + id, {headers:{Authorization : this.$auth.strategy.token.get() }}).then((response)=>{
-        console.log(response)
         this.$toaster.success("Successfully Submitted! Please Go to Your Profile");
       }).catch((error)=>{
       })

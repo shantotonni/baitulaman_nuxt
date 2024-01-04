@@ -29,7 +29,7 @@
         <div class="col-sm-12">
           <div v-if="pages">
             <div id="pdf-container">
-              <embed src="http://localhost:3000/assets/pdf/by_law.pdf" type="application/pdf" width="100%" height="100%">
+              <embed src="https://www.baitulamanedmonton.ca/assets/pdf/by_law.pdf" type="application/pdf" width="100%" height="100%">
             </div>
           </div>
           <br>

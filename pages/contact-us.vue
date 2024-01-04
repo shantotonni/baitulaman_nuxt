@@ -24,8 +24,8 @@
         <div class="row">
           <div class="col-md-7">
             <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
-              <p class="fs-5 text-uppercase text-primary">Get In Touch</p>
-              <h1 class="display-3">Contact For Any Queries</h1>
+<!--              <p class="fs-5 text-uppercase text-primary">Get In Touch</p>-->
+              <h1 class="display-3" style="font-size: 38px">Contact For Any Queries</h1>
               <p class="mb-0">The contact form is currently inactive. Get a functional and working contact
                 form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done.</p>
             </div>
@@ -48,13 +48,13 @@
                     <div class="error" v-if="form.errors.has('message')" v-html="form.errors.get('message')" />
                   </div>
                   <div class="col-12 text-center">
-                    <button class="btn btn-primary border-0 py-3 px-5" type="submit">Send Message</button>
+                    <button class="btn btn-primary border-0 py-3 px-5" type="submit">Send</button>
                   </div>
               </div>
             </form>
           </div>
           <div class="col-md-5">
-            <div style="    margin-top: 208px; background: #157347; color: white; padding: 25px;">
+            <div style="margin-top: 50px; background: #157347; color: white; padding: 25px;">
               <p>Are you looking for a Mosque to perform your daily and Jumu’ah prayer?</p>
               <p> Do you need your kids to learn Quran and Islam?</p>
               <p>Do you want to listen to an Islamic talk by a professional speaker?</p>

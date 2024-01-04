@@ -232,6 +232,7 @@ export default {
         clover.createToken()
           .then(function(result) {
             if (result.errors) {
+              console.log(result.errors)
               Object.values(result.errors).forEach((value)=>{
                 instance.displayError.push(value)
               });
@@ -244,13 +245,15 @@ export default {
     },
     createCharge(){
       this.form.post( base_url + 'api/charge').then((response)=>{
+        console.log(response)
         if (response.data.status === 'success'){
             this.$toaster.success(response.data.status)
             setTimeout(()=>{
               this.$router.go();
-            },4000)
+            },2000)
         }else{
-          this.$toaster.error(response.data.status)
+          console.log(response.data)
+          this.$toaster.error(response.data.message)
         }
       }).catch((error)=>{
         //

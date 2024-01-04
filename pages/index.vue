@@ -10,9 +10,9 @@
 <!--                <h1 class="mb-5 text-dark">Purity Comes From Faith</h1>-->
                 <p class="fs-4 text-dark" v-if="slider.title">{{ slider.title }}</p>
                 <h1 class="text-dark" v-if="slider.paragraph" v-html="slider.paragraph"></h1>
-                <nuxt-link to="/add-registration-for-maktab" class="btn btn-success py-3 px-5">Add registration for Maktab</nuxt-link>
-                <nuxt-link to="/apply-for-membership" class="btn btn-success py-3 px-5">Apply For Membership</nuxt-link>
-                <nuxt-link to="/mailing-list" class="btn btn-success py-3 px-5">Mail Us</nuxt-link>
+<!--                <nuxt-link to="/add-registration-for-maktab" class="btn btn-success py-3 px-5" style="font-size: 15px">Add registration for Maktab</nuxt-link>-->
+<!--                <nuxt-link to="/apply-for-membership" class="btn btn-success py-3 px-5" style="font-size: 15px">Apply For Membership</nuxt-link>-->
+<!--                <nuxt-link to="/mailing-list" class="btn btn-success py-3 px-5" style="font-size: 15px">Mail Us</nuxt-link>-->
               </div>
             </div>
           </div>
@@ -57,7 +57,7 @@
 <!--              <img src="/assets/img/about.jpg" style="height: 100%" class="img-fluid pb-3 wow zoomIn" data-wow-delay="0.1s" alt="">-->
 <!--            </div>-->
             <div class="col-xl-12 wow fadeIn" data-wow-delay="0.5s">
-              <p class="fs-5 text-uppercase text-primary">About THEMosque</p>
+              <p class="fs-5 text-uppercase text-primary">About THE Mosque</p>
               <h1 class="display-5 pb-4 m-0">Allah Help Those Who Help Themselves</h1>
               <p class="pb-4">Come join the Baitul Aman Islamic Society for some amazing times in Edmonton, AB! Enjoy prayers, Fridays at the mosque, special Ramadan events, delicious Iftar meals, Quran classes,
                 fun discussions, and great social gatherings. It's all happening – be part of the excitement with us!</p>
@@ -149,15 +149,8 @@
                 Note: The Schedule Can Change At Any Time. Please Contact Us Before Coming.
               </p>
             </div>
-            <div class="col-sm-4" style="text-align: left">
-              <div class="container-fluid about">
-                <div class="container py-3">
-                  <div class="row g-5">
-                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FbaisYEG&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=2520005324807291" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-                  </div>
-                </div>
-              </div>
-
+            <div class="col-sm-4" style="text-align: center">
+              <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FbaisYEG&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=2520005324807291" width="380" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
             </div>
           </div>
         </div>
@@ -204,30 +197,85 @@
       <div class="container-fluid event py-3">
         <div class="container py-3">
           <h1 class="display-3 wow fadeIn" data-wow-delay="0.1s">Upcoming <span class="text-primary">Events</span></h1>
-          <div class="row g-4 event-item wow fadeIn" data-wow-delay="0.1s" v-for="(event, i) in events" :key="event.id" v-if="events.length">
+          <div class="row g-4 event-item wow fadeIn" data-wow-delay="0.1s" v-for="(current, i) in current_events" :key="current.id" v-if="current_events.length">
             <div class="col-3 col-lg-2 pe-0">
               <div class="text-center border-bottom border-dark py-3 px-2">
-                <h6>{{ event.event_date }}</h6>
-                <p class="mb-0">{{ event.event_time }}</p>
+                <h6>{{ current.event_date }}</h6>
+                <p class="mb-0">{{ current.event_time }}</p>
               </div>
             </div>
             <div class="col-9 col-lg-6 border-start border-dark">
               <div class="ms-3">
-                <h4 class="mb-3">{{ event.title }}</h4>
-                <p class="mb-4" v-html="event.description"></p>
-                <a class="btn btn-primary px-3" @click="eventJoin(event.id)" v-if="$auth.loggedIn !== false">Join Now</a>
+                <h4 class="mb-3">{{ current.title }}</h4>
+                <p class="mb-4" v-html="current.description"></p>
+                <a class="btn btn-primary px-3" @click="eventJoin(current.id)" v-if="$auth.loggedIn !== false">Join Now</a>
                 <nuxt-link to="/login" class="btn btn-primary px-3" v-else>Join Now</nuxt-link>
               </div>
             </div>
             <div class="col-12 col-lg-4">
               <div class="overflow-hidden mb-5">
-                <img :src="eventimage(event.image)" class="img-fluid w-100" alt="">
+                <img :src="eventimage(current.image)" class="img-fluid w-100" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container py-3">
+          <h1 class="display-3 wow fadeIn" data-wow-delay="0.1s">Previous <span class="text-primary">Events</span></h1>
+          <div class="row g-4 event-item wow fadeIn" data-wow-delay="0.1s" v-for="(previous, i) in previous_events" :key="previous.id" v-if="previous_events.length">
+            <div class="col-3 col-lg-2 pe-0">
+              <div class="text-center border-bottom border-dark py-3 px-2">
+                <h6>{{ previous.event_date }}</h6>
+                <p class="mb-0">{{ previous.event_time }}</p>
+              </div>
+            </div>
+            <div class="col-9 col-lg-6 border-start border-dark">
+              <div class="ms-3">
+                <h4 class="mb-3">{{ previous.title }}</h4>
+                <p class="mb-4" v-html="previous.description"></p>
+                <a class="btn btn-primary px-3" @click="eventJoin(previous.id)" v-if="$auth.loggedIn !== false">Join Now</a>
+<!--                <nuxt-link to="/login" class="btn btn-primary px-3" v-else>Join Now</nuxt-link>-->
+              </div>
+            </div>
+            <div class="col-12 col-lg-4">
+              <div class="overflow-hidden mb-5">
+                <img :src="eventimage(previous.image)" class="img-fluid w-100" alt="">
               </div>
             </div>
           </div>
         </div>
       </div>
       <!-- Events End -->
+
+
+      <!-- Blog Start -->
+      <div class="container-fluid py-5">
+        <div class="container py-5">
+          <h1 class="display-3 mb-5 wow fadeIn" data-wow-delay="0.1s"><span class="text-primary">Blogs</span></h1>
+          <div class="row g-4 justify-content-center">
+            <div class="col-lg-6 col-xl-4" v-for="(blog, i) in blogs" :key="blog.id" v-if="blogs.length">
+              <div class="blog-item wow fadeIn" data-wow-delay="0.1s">
+                <div class="blog-img position-relative overflow-hidden">
+                  <img :src="blogImage(blog.image)" style="max-height: 330px;min-height: 330px" class="img-fluid w-100" alt="">
+                </div>
+                <div class="p-4">
+<!--                  <div class="blog-meta d-flex justify-content-between pb-2">-->
+<!--                    <div class="">-->
+<!--                      <a href=""><i class="fas fa-bookmark text-muted"></i></a>-->
+<!--                    </div>-->
+<!--                  </div>-->
+                  <a href="" class="d-inline-block h4 lh-sm mb-3">{{ blog.title }}</a>
+                  <p class="mb-4" style="text-align: justify" v-html="textTruncate(blog.description)"></p>
+                  <button type="button" class="btn btn-primary px-3" data-toggle="modal" data-target=".bd-example-modal-lg" @click="blogDetails(blog)">
+                    More Details
+                  </button>
+<!--                  <nuxt-link :to="`/programs/program-details/${blog.id}`" class="btn btn-primary px-3">More Details</nuxt-link>-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Blog End -->
 
       <!-- Team Start -->
       <div class="container-fluid team py-3" style="background: #f3f2f2">
@@ -245,7 +293,7 @@
             <div class="col-lg-8 col-xl-7">
               <div class="team-item wow fadeIn" data-wow-delay="0.1s">
                 <h1>{{ imam.name }}</h1>
-                <h5 class="fw-normal fst-italic text-primary mb-4">President</h5>
+<!--                <h5 class="fw-normal fst-italic text-primary mb-4">President</h5>-->
                 <p class="mb-4" v-html="imam.description"></p>
 <!--                <div class="team-icon d-flex pb-4 mb-4 border-bottom border-primary">-->
 <!--                  <a class="btn btn-primary btn-lg-square me-2" href=""><i class="fab fa-facebook-f"></i></a>-->
@@ -266,6 +314,26 @@
           <div class="row g-5">
             <div>
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2377.1323130630803!2d-113.4741695230085!3d53.430342468435036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53a01f649e5315a3%3A0xc477a96f3097b3c7!2sBaitul%20Aman%20Islamic%20Society!5e0!3m2!1sen!2sbd!4v1702797299739!5m2!1sen!2sbd" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">{{ blog_details.title }}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+             <p v-html="blog_details.description"></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
@@ -353,7 +421,10 @@ export default {
       user: this.$auth.user,
       imam: {},
       program_schedule: [],
-      events: [],
+      current_events: [],
+      blogs: [],
+      blog_details: {},
+      previous_events: [],
       slider: {},
       testimonials: [],
       pages: {},
@@ -373,6 +444,7 @@ export default {
     this.getImam();
     this.getProgramSchedule();
     this.getOurEvents();
+    this.getBlog();
     this.getPages();
     this.getAnnouncement();
     this.getSlider();
@@ -412,9 +484,23 @@ export default {
     },
     getOurEvents(){
       this.$axios.get( base_url + 'api/get-our-events').then((response)=>{
-        this.events = response.data.data;
+        this.current_events = response.data.current_events.data;
+        this.previous_events = response.data.previous_events.data;
       }).catch((error)=>{
       })
+    },
+    getBlog(){
+      this.$axios.get( base_url + 'api/get-our-blog').then((response)=>{
+        this.blogs = response.data.data;
+      }).catch((error)=>{
+      })
+    },
+    blogDetails(blog){
+      this.blog_details = blog
+      $("#blogModal").modal("show");
+    },
+    blogImage(image){
+      return base_url + "images/blog/"+ image;
     },
     getTestimonial(){
       this.$axios.get( base_url + 'api/get-testimonial').then((response)=>{
@@ -491,6 +577,9 @@ export default {
       }).catch((error)=>{
       })
     },
+    textTruncate(text){
+      return text.substring(100,0) + '.....';
+    }
   },
 }
 </script>

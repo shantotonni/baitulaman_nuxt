@@ -1,7 +1,7 @@
 //for server
-//let api_url = 'https://apibaitul.baitulamanedmonton.ca/'
+let api_url = 'https://apibaitul.baitulamanedmonton.ca/'
 //for Local
-let api_url = 'http://127.0.0.1:8000/'
+//let api_url = 'http://127.0.0.1:8000/'
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -22,6 +22,7 @@ export default {
     script: [
       { src: '/assets/js/jquery.min.js' },
       { src: '/assets/js/bootstrap.bundle.min.js' },
+      { src: 'https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js' },
       { src: '/assets/lib/wow/wow.min.js' },
       { src: '/assets/lib/easing/easing.min.js' },
       { src: '/assets/lib/waypoints/waypoints.min.js' },
@@ -33,7 +34,7 @@ export default {
       { src: '/assets/js/main.js' },
     ],
     link: [
-      // { rel: 'icon', type: 'image/x-icon', href: '/assets/img/icon/fav.png' },
+      { rel: 'icon', type: 'image/x-icon', href: '/assets/img/icon/fav.png' },
       { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.15.4/css/all.css',type: 'text/css' },
       { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css',type: 'text/css' },
       { rel: 'stylesheet', href: '/assets/lib/animate/animate.min.css' ,type: 'text/css'},
